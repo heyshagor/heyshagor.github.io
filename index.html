@@ -1,206 +1,861 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shagor — Network Engineer & Python Dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg:#0d0d0f;--bg2:#141416;--bg3:#1a1a1d;
-    --border:#2a2a2e;--border2:#3a3a40;
-    --text:#e8e8ec;--muted:#888890;--dim:#555560;
-    --accent:#4af0a0;--accent2:#a78bfa;--accent3:#f59e0b;
-  }
-  body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:14px;line-height:1.6}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:0.5px solid var(--border);background:var(--bg)}
-  .logo{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:0.05em}
-  .nav-links{display:flex;gap:24px}
-  .nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
-  .nav-links a:hover{color:var(--text)}
-  .hero{padding:56px 28px 48px;max-width:780px}
-  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:20px;padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:20px}
-  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-  h1{font-size:36px;font-weight:300;color:var(--text);line-height:1.2;margin-bottom:12px}
-  h1 span{color:var(--accent);font-weight:500}
-  .subtitle{font-size:14px;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:28px}
-  .cta-row{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{padding:8px 18px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;text-decoration:none;border:0.5px solid var(--border2);background:transparent;color:var(--text);transition:all 0.15s;letter-spacing:0.03em}
-  .btn:hover{background:var(--bg3);border-color:var(--border2)}
-  .btn-accent{background:var(--accent);color:#0d0d0f;border-color:var(--accent)}
-  .btn-accent:hover{background:#3de090}
-  .stack-row{display:flex;gap:6px;flex-wrap:wrap;padding:0 28px 40px}
-  .tag{padding:3px 10px;background:var(--bg3);border:0.5px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
-  .tag.net{color:#60a5fa;border-color:#1e3a5f}
-  .tag.py{color:#a78bfa;border-color:#2e1f5e}
-  .tag.ai{color:#f59e0b;border-color:#4a2e00}
-  .section{padding:0 28px 48px}
-  .section-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-  .section-label::after{content:'';flex:1;height:0.5px;background:var(--border)}
-  .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
-  .card{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:18px;transition:border-color 0.2s;cursor:default}
-  .card:hover{border-color:var(--border2)}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
-  .card-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px}
-  .ci-net{background:#0c1e3a}
-  .ci-py{background:#1a1040}
-  .ci-ai{background:#2a1800}
-  .ci-dsa{background:#0a2a1a}
-  .card-title{font-size:13px;font-weight:500;margin-bottom:5px;color:var(--text)}
-  .card-desc{font-size:12px;color:var(--muted);line-height:1.55}
-  .card-tags{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}
-  .ct{font-size:10px;padding:2px 7px;border-radius:3px;background:var(--bg3)}
-  .ct-n{color:#60a5fa}
-  .ct-p{color:#a78bfa}
-  .ct-a{color:#f59e0b}
-  .ct-d{color:#4af0a0}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .about-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:16px}
-  .about-card h3{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em}
-  .about-card p{font-size:12px;color:var(--muted);line-height:1.6}
-  .skill-list{display:flex;flex-direction:column;gap:6px}
-  .skill-item{display:flex;align-items:center;justify-content:space-between;font-size:12px}
-  .skill-name{color:var(--text)}
-  .skill-bar{flex:1;height:2px;background:var(--bg3);border-radius:2px;margin:0 10px}
-  .skill-fill{height:100%;border-radius:2px}
-  footer{padding:20px 28px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-  footer span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080a0e;
+  --bg2:#0d1117;
+  --bg3:#131820;
+  --bg4:#1a2030;
+  --border:#1e2736;
+  --border2:#263040;
+  --border3:#2e3a50;
+  --text:#c9d4e8;
+  --text2:#7a8ba8;
+  --text3:#4a5870;
+  --accent:#00ff88;
+  --accent-dim:#00cc6a;
+  --accent2:#4d9fff;
+  --accent3:#f0a500;
+  --accent4:#b06cff;
+  --red:#ff4d6a;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  line-height:1.65;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* Custom cursor */
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,background 0.2s;mix-blend-mode:screen}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(0,255,136,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease;mix-blend-mode:screen}
+
+/* Scanline overlay */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
+  pointer-events:none;z-index:1000;
+}
+
+/* Grid background */
+.grid-bg{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,136,0.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;z-index:0;
+}
+
+/* Glow orbs */
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;animation:drift 12s ease-in-out infinite}
+.orb1{width:500px;height:500px;background:rgba(0,255,136,0.04);top:-100px;right:-100px;animation-delay:0s}
+.orb2{width:400px;height:400px;background:rgba(77,159,255,0.04);bottom:20%;left:-150px;animation-delay:-5s}
+.orb3{width:300px;height:300px;background:rgba(176,108,255,0.03);top:40%;right:10%;animation-delay:-8s}
+@keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(20px,-30px)}66%{transform:translate(-15px,20px)}}
+
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:56px;
+  background:rgba(8,10,14,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;font-weight:500;
+  color:var(--accent);
+  display:flex;align-items:center;gap:8px;
+}
+.logo-blink{animation:blink 1.2s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{
+  display:block;padding:8px 16px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;
+  color:var(--text3);text-decoration:none;letter-spacing:0.08em;
+  transition:color 0.2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:50%;right:50%;
+  height:1px;background:var(--accent);transition:all 0.2s;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{left:16px;right:16px}
+.nav-status{
+  display:flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);
+}
+.status-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse-dot 2s ease infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,0.4)}70%{box-shadow:0 0 0 6px rgba(0,255,136,0)}}
+
+/* Main layout */
+main{position:relative;z-index:1}
+
+/* Hero */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:100px 40px 60px;
+  max-width:1100px;margin:0 auto;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--text3);letter-spacing:0.12em;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.6s ease 0.2s forwards;
+}
+.hero-eyebrow span{color:var(--accent)}
+.hero-h1{
+  font-family:'DM Sans',sans-serif;font-weight:300;
+  font-size:clamp(42px,7vw,88px);line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:20px;
+  opacity:0;animation:fadeUp 0.7s ease 0.35s forwards;
+}
+.hero-h1 .line2{color:var(--text2)}
+.hero-h1 .highlight{
+  color:var(--accent);font-weight:400;
+  position:relative;
+}
+.hero-h1 .highlight::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;right:0;
+  height:2px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+  animation:underlineGrow 0.6s ease 1.2s forwards;
+}
+@keyframes underlineGrow{to{transform:scaleX(1)}}
+.hero-sub{
+  font-size:16px;color:var(--text2);max-width:540px;line-height:1.75;
+  margin-bottom:36px;font-weight:300;
+  opacity:0;animation:fadeUp 0.6s ease 0.5s forwards;
+}
+.hero-sub strong{color:var(--text);font-weight:400}
+.hero-cta{
+  display:flex;gap:12px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.6s ease 0.65s forwards;
+}
+.btn{
+  padding:11px 22px;border-radius:4px;font-size:13px;font-weight:500;
+  text-decoration:none;cursor:none;
+  transition:all 0.2s;letter-spacing:0.02em;
+  font-family:'DM Sans',sans-serif;
+  border:1px solid transparent;
+  position:relative;overflow:hidden;
+}
+.btn-primary{background:var(--accent);color:#080a0e;border-color:var(--accent)}
+.btn-primary:hover{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--border3);color:var(--text);background:var(--bg3)}
+.hero-metrics{
+  display:flex;gap:40px;margin-top:64px;padding-top:40px;
+  border-top:1px solid var(--border);
+  opacity:0;animation:fadeUp 0.6s ease 0.8s forwards;
+}
+.metric-item{display:flex;flex-direction:column;gap:4px}
+.metric-num{
+  font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:500;
+  color:var(--accent);
+}
+.metric-label{font-size:11px;color:var(--text3);letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
+
+/* Stack bar */
+.stack-section{
+  padding:24px 40px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--bg2);
+  overflow:hidden;
+  position:relative;z-index:1;
+}
+.stack-inner{
+  display:flex;gap:8px;align-items:center;
+  animation:scrollTags 30s linear infinite;
+  width:max-content;
+}
+.stack-inner:hover{animation-play-state:paused}
+@keyframes scrollTags{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.stag{
+  padding:5px 14px;border-radius:3px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;
+  white-space:nowrap;border:1px solid;
+  transition:all 0.15s;
+}
+.stag-n{color:#4d9fff;border-color:#1a2d45;background:rgba(77,159,255,0.06)}
+.stag-p{color:#b06cff;border-color:#2a1a45;background:rgba(176,108,255,0.06)}
+.stag-a{color:#f0a500;border-color:#3a2800;background:rgba(240,165,0,0.06)}
+.stag-g{color:#00ff88;border-color:#004422;background:rgba(0,255,136,0.06)}
+
+/* Section styles */
+section{padding:80px 40px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.sec-label{
+  display:flex;align-items:center;gap:12px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:var(--text3);letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:40px;
+}
+.sec-label::before{content:attr(data-num);color:var(--accent);font-size:10px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.pcard{
+  background:var(--bg2);padding:28px;
+  position:relative;overflow:hidden;
+  transition:background 0.2s;
+  group:true;
+}
+.pcard::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,255,136,0.03) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s;
+}
+.pcard:hover{background:var(--bg3)}
+.pcard:hover::before{opacity:1}
+.pcard-num{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:var(--text3);letter-spacing:0.1em;
+  margin-bottom:16px;display:block;
+}
+.pcard-icon{
+  width:40px;height:40px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:16px;
+  border:1px solid var(--border2);background:var(--bg3);
+  transition:border-color 0.2s,transform 0.2s;
+}
+.pcard:hover .pcard-icon{border-color:var(--border3);transform:translateY(-2px)}
+.pcard-title{
+  font-size:15px;font-weight:500;color:var(--text);
+  margin-bottom:8px;line-height:1.3;
+}
+.pcard-desc{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:16px;font-weight:300}
+.pcard-tags{display:flex;gap:5px;flex-wrap:wrap}
+.ptag{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  padding:3px 8px;border-radius:2px;border:1px solid;
+}
+.pt-n{color:#4d9fff;border-color:#1a2d45}
+.pt-p{color:#b06cff;border-color:#2a1a45}
+.pt-a{color:#f0a500;border-color:#3a2800}
+.pt-g{color:#00ff88;border-color:#003322}
+.pcard-link{
+  position:absolute;top:20px;right:20px;
+  width:28px;height:28px;border:1px solid var(--border2);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text3);font-size:12px;text-decoration:none;
+  opacity:0;transition:all 0.2s;background:var(--bg3);
+}
+.pcard:hover .pcard-link{opacity:1;color:var(--accent);border-color:var(--border3)}
+
+/* Skills */
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.skill-block{
+  background:var(--bg2);border:1px solid var(--border);
+  padding:28px;border-radius:4px;
+}
+.skill-block h3{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--text3);letter-spacing:0.1em;
+  margin-bottom:24px;padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.skill-row{margin-bottom:18px}
+.skill-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.skill-name{font-size:13px;color:var(--text);font-weight:400}
+.skill-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}
+.skill-track{height:2px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.skill-fill{
+  height:100%;border-radius:2px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+.skill-fill.animate{transform:scaleX(1)}
+
+.roles-block{
+  background:var(--bg2);border:1px solid var(--border);
+  padding:28px;border-radius:4px;
+}
+.roles-block h3{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--text3);letter-spacing:0.1em;
+  margin-bottom:20px;
+}
+.role-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 0;border-bottom:1px solid var(--border);
+}
+.role-item:last-child{border-bottom:none}
+.role-dot{
+  width:6px;height:6px;border-radius:50%;
+  margin-top:6px;flex-shrink:0;
+}
+.role-name{font-size:14px;color:var(--text);font-weight:400;margin-bottom:3px}
+.role-why{font-size:12px;color:var(--text3);font-weight:300}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{
+  content:'';position:absolute;left:0;top:8px;bottom:8px;
+  width:1px;background:var(--border2);
+}
+.t-item{
+  position:relative;padding:0 0 36px 24px;
+  opacity:0;transform:translateX(-10px);
+  transition:all 0.4s ease;
+}
+.t-item.visible{opacity:1;transform:translateX(0)}
+.t-item::before{
+  content:'';position:absolute;left:-4px;top:6px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--border2);
+  transition:border-color 0.2s,background 0.2s;
+}
+.t-item:hover::before{border-color:var(--accent);background:var(--accent)}
+.t-date{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:var(--accent);letter-spacing:0.08em;margin-bottom:4px;
+}
+.t-title{font-size:14px;color:var(--text);font-weight:500;margin-bottom:4px}
+.t-desc{font-size:12px;color:var(--text3);font-weight:300;line-height:1.6}
+
+/* About */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.about-text p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:16px;font-weight:300}
+.about-text p strong{color:var(--text);font-weight:400}
+.terminal-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+}
+.terminal-bar{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 16px;background:var(--bg3);
+  border-bottom:1px solid var(--border);
+}
+.tdot{width:10px;height:10px;border-radius:50%}
+.td1{background:#ff5f57}.td2{background:#ffbd2e}.td3{background:#28ca41}
+.terminal-title{flex:1;text-align:center;font-size:10px;color:var(--text3);letter-spacing:0.05em}
+.terminal-body{padding:20px}
+.tline{margin-bottom:6px;color:var(--text2)}
+.tline .prompt{color:var(--accent)}
+.tline .cmd{color:var(--text)}
+.tline .out{color:var(--text3);padding-left:16px}
+.tline .out.ok{color:#28ca41}
+.tline .out.warn{color:#f0a500}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contact-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:24px;
+  text-decoration:none;color:inherit;
+  transition:all 0.2s;position:relative;overflow:hidden;
+}
+.contact-card::after{
+  content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:16px;color:var(--text3);transition:all 0.2s;
+}
+.contact-card:hover{border-color:var(--border3);background:var(--bg3)}
+.contact-card:hover::after{right:12px;color:var(--accent)}
+.cc-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.1em;margin-bottom:6px}
+.cc-value{font-size:14px;color:var(--text);font-weight:400}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--border);
+  padding:24px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:1;
+}
+footer .fl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}
+footer .fl span{color:var(--accent)}
+
+/* Animations */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Mobile */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:80px 20px 40px}
+  .hero-h1{font-size:38px}
+  .hero-metrics{gap:24px;flex-wrap:wrap}
+  section{padding:60px 20px}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px}
+  .stack-section{padding:16px 20px}
+}
+@media(max-width:480px){
+  .hero-metrics{gap:20px}
+  .metric-num{font-size:22px}
+  .pcard{padding:20px}
+}
 </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 
 <nav>
-  <div class="logo">shagor@portfolio:~$</div>
-  <div class="nav-links">
-    <a href="#">projects</a>
-    <a href="#">about</a>
-    <a href="#">github</a>
-    <a href="#">contact</a>
+  <div class="logo">
+    heyshagor@portfolio:~$<span class="logo-blink">▋</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#roadmap">roadmap</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    available for roles
   </div>
 </nav>
 
+<main>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="badge"><div class="dot"></div>open to roles</div>
-  <h1>Network Engineer<br>meets <span>Python Dev</span></h1>
-  <p class="subtitle">Building at the intersection of networking, automation, and AI — CCNA-track + Python + DSA + ML/LLM systems.</p>
-  <div class="cta-row">
-    <a class="btn btn-accent" href="#">view projects</a>
-    <a class="btn" href="#">github.com/heyshagor</a>
-    <a class="btn" href="#">download cv</a>
+  <div class="hero-eyebrow">
+    <span>// 001</span> network engineer · python dev · dhaka, bd
   </div>
-</div>
-
-<div class="stack-row">
-  <span class="tag net">CCNA</span>
-  <span class="tag net">TCP/IP</span>
-  <span class="tag net">OSPF</span>
-  <span class="tag net">STP</span>
-  <span class="tag py">Python</span>
-  <span class="tag py">Netmiko</span>
-  <span class="tag py">Flask</span>
-  <span class="tag ai">ML/AI</span>
-  <span class="tag ai">LLM</span>
-  <span class="tag py">DSA</span>
-  <span class="tag py">Linux</span>
-</div>
-
-<div class="section">
-  <div class="section-label">featured projects</div>
-  <div class="projects">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-net">🌐</div>
-      </div>
-      <div class="card-title">Network Monitor Dashboard</div>
-      <div class="card-desc">Live topology viewer with SNMP polling, alerting, and latency graphs across simulated GNS3 network.</div>
-      <div class="card-tags">
-        <span class="ct ct-n">networking</span>
-        <span class="ct ct-p">python</span>
-        <span class="ct ct-d">flask</span>
-      </div>
+  <h1 class="hero-h1">
+    Where packets<br>
+    <span class="line2">meet <span class="highlight">Python.</span></span>
+  </h1>
+  <p class="hero-sub">
+    Building at the intersection of <strong>networking</strong>, <strong>automation</strong>, and <strong>AI</strong>.<br>
+    CCNA-track · Python · DSA · ML/LLM systems.
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">view projects</a>
+    <a href="https://github.com/heyshagor" class="btn btn-ghost">github.com/heyshagor</a>
+    <a href="#contact" class="btn btn-ghost">get in touch</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric-item">
+      <span class="metric-num" data-target="16">0</span>
+      <span class="metric-label">week plan</span>
     </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-py">⚙️</div>
-      </div>
-      <div class="card-title">BGP/OSPF Automation</div>
-      <div class="card-desc">Python scripts using Netmiko to auto-configure router interfaces, OSPF areas, and generate audit reports.</div>
-      <div class="card-tags">
-        <span class="ct ct-n">OSPF</span>
-        <span class="ct ct-p">netmiko</span>
-        <span class="ct ct-p">CLI</span>
-      </div>
+    <div class="metric-item">
+      <span class="metric-num" data-target="6">0</span>
+      <span class="metric-label">projects</span>
     </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-ai">🤖</div>
-      </div>
-      <div class="card-title">LLM Network Troubleshooter</div>
-      <div class="card-desc">Feed syslog/packet capture data to an LLM API to get plain-English root cause analysis and fix suggestions.</div>
-      <div class="card-tags">
-        <span class="ct ct-a">LLM</span>
-        <span class="ct ct-p">python</span>
-        <span class="ct ct-n">syslog</span>
-      </div>
+    <div class="metric-item">
+      <span class="metric-num" data-target="5">0</span>
+      <span class="metric-label">tech pillars</span>
     </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-dsa">🧮</div>
-      </div>
-      <div class="card-title">Dijkstra Visualizer</div>
-      <div class="card-desc">Interactive shortest-path demo that mirrors how OSPF computes routing tables — DSA meets networking protocols.</div>
-      <div class="card-tags">
-        <span class="ct ct-d">DSA</span>
-        <span class="ct ct-p">python</span>
-        <span class="ct ct-n">OSPF</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-ai">📊</div>
-      </div>
-      <div class="card-title">Traffic Anomaly ML Model</div>
-      <div class="card-desc">Trained a classifier on netflow data to flag DDoS patterns — deployed as a lightweight REST API.</div>
-      <div class="card-tags">
-        <span class="ct ct-a">ML</span>
-        <span class="ct ct-p">scikit-learn</span>
-        <span class="ct ct-n">netflow</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon ci-py">🐧</div>
-      </div>
-      <div class="card-title">Custom Linux ISO</div>
-      <div class="card-desc">Ubuntu 24.04 + Hyprland + macOS aesthetic — built with Cubic, automated dotfile config, WhiteSur theme.</div>
-      <div class="card-tags">
-        <span class="ct ct-d">Linux</span>
-        <span class="ct ct-p">Hyprland</span>
-        <span class="ct ct-d">Bash</span>
-      </div>
+    <div class="metric-item">
+      <span class="metric-num" data-suffix=" Jul">10</span>
+      <span class="metric-label">phase 1 target</span>
     </div>
   </div>
 </div>
 
-<div class="section">
-  <div class="section-label">skills & context</div>
-  <div class="about-grid">
-    <div class="about-card">
+<!-- SCROLLING STACK -->
+<div class="stack-section">
+  <div class="stack-inner" id="stackInner">
+    <span class="stag stag-n">CCNA</span>
+    <span class="stag stag-n">TCP/IP</span>
+    <span class="stag stag-n">OSPF</span>
+    <span class="stag stag-n">STP</span>
+    <span class="stag stag-n">BGP</span>
+    <span class="stag stag-n">VLANs</span>
+    <span class="stag stag-n">Subnetting</span>
+    <span class="stag stag-p">Python</span>
+    <span class="stag stag-p">Netmiko</span>
+    <span class="stag stag-p">Flask</span>
+    <span class="stag stag-p">Django</span>
+    <span class="stag stag-g">DSA</span>
+    <span class="stag stag-g">Dijkstra</span>
+    <span class="stag stag-g">BFS/DFS</span>
+    <span class="stag stag-a">ML/AI</span>
+    <span class="stag stag-a">LLM</span>
+    <span class="stag stag-a">scikit-learn</span>
+    <span class="stag stag-g">Linux</span>
+    <span class="stag stag-g">Hyprland</span>
+    <span class="stag stag-g">GNS3</span>
+    <span class="stag stag-g">Wireshark</span>
+    <!-- duplicate for seamless loop -->
+    <span class="stag stag-n">CCNA</span>
+    <span class="stag stag-n">TCP/IP</span>
+    <span class="stag stag-n">OSPF</span>
+    <span class="stag stag-n">STP</span>
+    <span class="stag stag-n">BGP</span>
+    <span class="stag stag-n">VLANs</span>
+    <span class="stag stag-n">Subnetting</span>
+    <span class="stag stag-p">Python</span>
+    <span class="stag stag-p">Netmiko</span>
+    <span class="stag stag-p">Flask</span>
+    <span class="stag stag-p">Django</span>
+    <span class="stag stag-g">DSA</span>
+    <span class="stag stag-g">Dijkstra</span>
+    <span class="stag stag-g">BFS/DFS</span>
+    <span class="stag stag-a">ML/AI</span>
+    <span class="stag stag-a">LLM</span>
+    <span class="stag stag-a">scikit-learn</span>
+    <span class="stag stag-g">Linux</span>
+    <span class="stag stag-g">Hyprland</span>
+    <span class="stag stag-g">GNS3</span>
+    <span class="stag stag-g">Wireshark</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label reveal" data-num="01">featured projects</div>
+  <div class="projects-grid reveal">
+    <div class="pcard">
+      <span class="pcard-num">01</span>
+      <div class="pcard-icon">🌐</div>
+      <div class="pcard-title">Network Monitor Dashboard</div>
+      <div class="pcard-desc">Live topology viewer with SNMP polling, real-time alerting, and latency graphs across a simulated GNS3 multi-router network. Visualises link states and traffic flow.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-n">networking</span>
+        <span class="ptag pt-p">Python</span>
+        <span class="ptag pt-p">Flask</span>
+        <span class="ptag pt-n">SNMP</span>
+        <span class="ptag pt-g">GNS3</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+    <div class="pcard">
+      <span class="pcard-num">02</span>
+      <div class="pcard-icon">⚙️</div>
+      <div class="pcard-title">BGP / OSPF Automation</div>
+      <div class="pcard-desc">Python + Netmiko scripts that auto-configure router interfaces, OSPF areas and redistribute routes. Generates audit reports in JSON and pushes diffs to Git.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-n">OSPF</span>
+        <span class="ptag pt-n">BGP</span>
+        <span class="ptag pt-p">Netmiko</span>
+        <span class="ptag pt-p">Python</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+    <div class="pcard">
+      <span class="pcard-num">03</span>
+      <div class="pcard-icon">🤖</div>
+      <div class="pcard-title">LLM Network Troubleshooter</div>
+      <div class="pcard-desc">Feeds syslog and packet capture data to an LLM API for plain-English root cause analysis. Identifies BGP flaps, ACL drops and interface errors automatically.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-a">LLM</span>
+        <span class="ptag pt-p">Python</span>
+        <span class="ptag pt-n">syslog</span>
+        <span class="ptag pt-n">pcap</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+    <div class="pcard">
+      <span class="pcard-num">04</span>
+      <div class="pcard-icon">🧮</div>
+      <div class="pcard-title">Dijkstra Visualiser</div>
+      <div class="pcard-desc">Step-by-step shortest-path demo that mirrors how OSPF computes routing tables. Shows SPF tree construction, cost calculation and convergence — DSA meets protocol design.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-g">DSA</span>
+        <span class="ptag pt-p">Python</span>
+        <span class="ptag pt-n">OSPF</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+    <div class="pcard">
+      <span class="pcard-num">05</span>
+      <div class="pcard-icon">📊</div>
+      <div class="pcard-title">Traffic Anomaly ML Model</div>
+      <div class="pcard-desc">Classifier trained on NetFlow data to detect DDoS patterns, port scans and anomalous traffic bursts. Deployed as a lightweight REST API with confidence scores.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-a">ML</span>
+        <span class="ptag pt-p">scikit-learn</span>
+        <span class="ptag pt-n">NetFlow</span>
+        <span class="ptag pt-p">FastAPI</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+    <div class="pcard">
+      <span class="pcard-num">06</span>
+      <div class="pcard-icon">🐧</div>
+      <div class="pcard-title">Custom Linux ISO</div>
+      <div class="pcard-desc">Ubuntu 24.04 + Hyprland built with Cubic. macOS-style aesthetics via WhiteSur theme, SF Pro fonts, custom Plymouth/GRUB. Snapd blocked, fully reproducible build.</div>
+      <div class="pcard-tags">
+        <span class="ptag pt-g">Linux</span>
+        <span class="ptag pt-g">Hyprland</span>
+        <span class="ptag pt-g">Bash</span>
+        <span class="ptag pt-g">Cubic</span>
+      </div>
+      <a href="https://github.com/heyshagor" class="pcard-link">↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label reveal" data-num="02">skills & stack</div>
+  <div class="skills-layout">
+    <div class="skill-block reveal">
       <h3>proficiency</h3>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-name">Networking / CCNA</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:#60a5fa"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:65%;background:#a78bfa"></div></div></div>
-        <div class="skill-item"><span class="skill-name">DSA</span><div class="skill-bar"><div class="skill-fill" style="width:55%;background:#4af0a0"></div></div></div>
-        <div class="skill-item"><span class="skill-name">ML / AI</span><div class="skill-bar"><div class="skill-fill" style="width:45%;background:#f59e0b"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Linux / CLI</span><div class="skill-bar"><div class="skill-fill" style="width:80%;background:#4af0a0"></div></div></div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Linux / CLI</span><span class="skill-pct">82%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:82%;background:var(--accent)" data-w="82"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Networking / CCNA</span><span class="skill-pct">72%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:72%;background:var(--accent2)" data-w="72"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">68%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:68%;background:var(--accent4)" data-w="68"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">DSA</span><span class="skill-pct">55%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:55%;background:var(--accent)" data-w="55"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">ML / AI / LLM</span><span class="skill-pct">45%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:45%;background:var(--accent3)" data-w="45"></div></div>
       </div>
     </div>
-    <div class="about-card">
-      <h3>target roles</h3>
-      <p style="color:var(--text);margin-bottom:8px;font-size:13px">Network Automation Engineer</p>
-      <p style="color:var(--text);margin-bottom:8px;font-size:13px">AI Infrastructure Engineer</p>
-      <p style="color:var(--text);margin-bottom:8px;font-size:13px">Network Software Developer</p>
-      <p style="margin-top:12px">Differentiator: networking depth + software + AI — rare stack, high-value roles.</p>
+    <div>
+      <div class="roles-block reveal" style="margin-bottom:12px">
+        <h3>target roles</h3>
+        <div class="role-item">
+          <div class="role-dot" style="background:var(--accent)"></div>
+          <div>
+            <div class="role-name">Network Automation Engineer</div>
+            <div class="role-why">Python + Netmiko + config management at scale</div>
+          </div>
+        </div>
+        <div class="role-item">
+          <div class="role-dot" style="background:var(--accent2)"></div>
+          <div>
+            <div class="role-name">AI Infrastructure Engineer</div>
+            <div class="role-why">Networking backbone for ML training clusters</div>
+          </div>
+        </div>
+        <div class="role-item">
+          <div class="role-dot" style="background:var(--accent4)"></div>
+          <div>
+            <div class="role-name">Network Software Developer</div>
+            <div class="role-why">Protocol implementation + tooling in Python</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="sec-label reveal" data-num="03">16-week roadmap · phase 1</div>
+  <div class="timeline reveal">
+    <div class="t-item">
+      <div class="t-date">Week 1–2 · Mar 22</div>
+      <div class="t-title">Networking Fundamentals + Python Basics</div>
+      <div class="t-desc">OSI model, TCP/IP, subnetting, binary math. Python env, data types, loops, functions.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 3–4</div>
+      <div class="t-title">Switching + Python OOP + DSA: Arrays</div>
+      <div class="t-desc">VLANs, STP, EtherChannel. Classes, inheritance. Array problems and complexity analysis.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 5–6</div>
+      <div class="t-title">Routing (OSPF/EIGRP) + File I/O + Linked Lists</div>
+      <div class="t-desc">Dynamic routing protocols. CSV/JSON handling. Singly and doubly linked lists.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 7–8</div>
+      <div class="t-title">WAN + Netmiko Automation + Stacks & Queues</div>
+      <div class="t-desc">First automation scripts. SSH into routers. BFS/DFS foundations.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 9–12</div>
+      <div class="t-title">Security + REST APIs + Trees + Graphs</div>
+      <div class="t-desc">ACLs, NAT, VPN concepts. Build REST APIs with Flask. Dijkstra — mirroring OSPF SPF.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 13–14</div>
+      <div class="t-title">Network Automation Project + ML Intro</div>
+      <div class="t-desc">Full config automation pipeline. Intro to scikit-learn, traffic classification basics.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Week 15–16 · Jul 10</div>
+      <div class="t-title">🎯 Capstone: Live Network Monitoring Dashboard</div>
+      <div class="t-desc">Full-stack network monitoring dashboard. Phase 1 complete. GitHub portfolio live.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label reveal" data-num="04">about</div>
+  <div class="about-layout">
+    <div class="about-text reveal">
+      <p>I'm an aspiring <strong>Network Engineer</strong> based in Dhaka, Bangladesh — building a rare skill set that combines deep networking knowledge with <strong>Python programming</strong> and <strong>DSA</strong>.</p>
+      <p>Most engineers go either purely networking or purely software. I'm building both, which opens doors to <strong>network automation</strong>, AI infrastructure, and protocol-level software development.</p>
+      <p>Currently following a structured 16-week plan targeting CCNA certification, Python proficiency, and a live project portfolio by July 2026.</p>
+    </div>
+    <div class="terminal-card reveal">
+      <div class="terminal-bar">
+        <div class="tdot td1"></div>
+        <div class="tdot td2"></div>
+        <div class="tdot td3"></div>
+        <div class="terminal-title">shagor — zsh</div>
+      </div>
+      <div class="terminal-body">
+        <div class="tline"><span class="prompt">❯ </span><span class="cmd">whoami</span></div>
+        <div class="tline"><span class="out">shagor — network eng student</span></div>
+        <div class="tline" style="margin-top:8px"><span class="prompt">❯ </span><span class="cmd">cat skills.txt</span></div>
+        <div class="tline"><span class="out ok">✓ networking (CCNA track)</span></div>
+        <div class="tline"><span class="out ok">✓ python + automation</span></div>
+        <div class="tline"><span class="out ok">✓ DSA + algorithms</span></div>
+        <div class="tline"><span class="out warn">~ ML/AI (learning)</span></div>
+        <div class="tline"><span class="out warn">~ LLM integration (learning)</span></div>
+        <div class="tline" style="margin-top:8px"><span class="prompt">❯ </span><span class="cmd">echo $LOCATION</span></div>
+        <div class="tline"><span class="out">Dhaka, Bangladesh</span></div>
+        <div class="tline" style="margin-top:8px"><span class="prompt">❯ </span><span class="cmd">echo $STATUS</span></div>
+        <div class="tline"><span class="out ok">open to opportunities ✓</span></div>
+        <div class="tline" style="margin-top:8px"><span class="prompt">❯ <span style="animation:blink 1.2s step-end infinite">▋</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label reveal" data-num="05">contact</div>
+  <div class="contact-grid reveal">
+    <a href="https://github.com/heyshagor" class="contact-card">
+      <div class="cc-label">github</div>
+      <div class="cc-value">github.com/heyshagor</div>
+    </a>
+    <a href="mailto:itzshagor9@email.com" class="contact-card">
+      <div class="cc-label">email</div>
+      <div class="cc-value">itzshagor9@email.com</div>
+    </a>
+    <a href="https://linkedin.com/in/itzshagor" class="contact-card">
+      <div class="cc-label">linkedin</div>
+      <div class="cc-value">linkedin.com/in/itzshagor</div>
+    </a>
+  </div>
+</section>
+
+</main>
 
 <footer>
-  <span>heyshagor · built with github pages</span>
-  <span>dhaka, bangladesh</span>
+  <span class="fl">heyshagor · <span>heyshagor.github.io</span></span>
+  <span class="fl">built with html · deployed on github pages</span>
+  <span class="fl">phase 1 ends <span>jul 10 2026</span></span>
 </footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,.btn,.pcard,.contact-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.transform='translate(-50%,-50%) scale(2.5)';
+    ring.style.transform='translate(-50%,-50%) scale(1.4)';
+    ring.style.borderColor='rgba(0,255,136,0.6)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.transform='translate(-50%,-50%) scale(1)';
+    ring.style.transform='translate(-50%,-50%) scale(1)';
+    ring.style.borderColor='rgba(0,255,136,0.3)';
+  });
+});
+
+// Counter animation
+function animateCounter(el){
+  const target=parseInt(el.dataset.target)||parseInt(el.textContent)||0;
+  const suffix=el.dataset.suffix||'';
+  if(!target){return}
+  let start=null;
+  const dur=1200;
+  function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(ease*target)+suffix;
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counters=document.querySelectorAll('.metric-num[data-target]');
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target)}});
+},{threshold:0.5});
+counters.forEach(c=>cObs.observe(c));
+
+// Reveal on scroll
+const reveals=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*60);
+    }
+  });
+},{threshold:0.1});
+reveals.forEach(r=>revObs.observe(r));
+
+// Skill bars
+const bars=document.querySelectorAll('.skill-fill');
+const barObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('animate');barObs.unobserve(e.target)}
+  });
+},{threshold:0.3});
+bars.forEach(b=>barObs.observe(b));
+
+// Timeline items
+const tItems=document.querySelectorAll('.t-item');
+const tObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.2});
+tItems.forEach(t=>tObs.observe(t));
+</script>
+</body>
+</html>
