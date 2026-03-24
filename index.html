@@ -1,0 +1,206 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0d0d0f;--bg2:#141416;--bg3:#1a1a1d;
+    --border:#2a2a2e;--border2:#3a3a40;
+    --text:#e8e8ec;--muted:#888890;--dim:#555560;
+    --accent:#4af0a0;--accent2:#a78bfa;--accent3:#f59e0b;
+  }
+  body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:14px;line-height:1.6}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:0.5px solid var(--border);background:var(--bg)}
+  .logo{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:0.05em}
+  .nav-links{display:flex;gap:24px}
+  .nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+  .nav-links a:hover{color:var(--text)}
+  .hero{padding:56px 28px 48px;max-width:780px}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:20px;padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:20px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  h1{font-size:36px;font-weight:300;color:var(--text);line-height:1.2;margin-bottom:12px}
+  h1 span{color:var(--accent);font-weight:500}
+  .subtitle{font-size:14px;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:28px}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{padding:8px 18px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;text-decoration:none;border:0.5px solid var(--border2);background:transparent;color:var(--text);transition:all 0.15s;letter-spacing:0.03em}
+  .btn:hover{background:var(--bg3);border-color:var(--border2)}
+  .btn-accent{background:var(--accent);color:#0d0d0f;border-color:var(--accent)}
+  .btn-accent:hover{background:#3de090}
+  .stack-row{display:flex;gap:6px;flex-wrap:wrap;padding:0 28px 40px}
+  .tag{padding:3px 10px;background:var(--bg3);border:0.5px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
+  .tag.net{color:#60a5fa;border-color:#1e3a5f}
+  .tag.py{color:#a78bfa;border-color:#2e1f5e}
+  .tag.ai{color:#f59e0b;border-color:#4a2e00}
+  .section{padding:0 28px 48px}
+  .section-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .section-label::after{content:'';flex:1;height:0.5px;background:var(--border)}
+  .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+  .card{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:18px;transition:border-color 0.2s;cursor:default}
+  .card:hover{border-color:var(--border2)}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+  .card-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .ci-net{background:#0c1e3a}
+  .ci-py{background:#1a1040}
+  .ci-ai{background:#2a1800}
+  .ci-dsa{background:#0a2a1a}
+  .card-title{font-size:13px;font-weight:500;margin-bottom:5px;color:var(--text)}
+  .card-desc{font-size:12px;color:var(--muted);line-height:1.55}
+  .card-tags{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}
+  .ct{font-size:10px;padding:2px 7px;border-radius:3px;background:var(--bg3)}
+  .ct-n{color:#60a5fa}
+  .ct-p{color:#a78bfa}
+  .ct-a{color:#f59e0b}
+  .ct-d{color:#4af0a0}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .about-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:16px}
+  .about-card h3{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em}
+  .about-card p{font-size:12px;color:var(--muted);line-height:1.6}
+  .skill-list{display:flex;flex-direction:column;gap:6px}
+  .skill-item{display:flex;align-items:center;justify-content:space-between;font-size:12px}
+  .skill-name{color:var(--text)}
+  .skill-bar{flex:1;height:2px;background:var(--bg3);border-radius:2px;margin:0 10px}
+  .skill-fill{height:100%;border-radius:2px}
+  footer{padding:20px 28px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  footer span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+</style>
+
+<nav>
+  <div class="logo">shagor@portfolio:~$</div>
+  <div class="nav-links">
+    <a href="#">projects</a>
+    <a href="#">about</a>
+    <a href="#">github</a>
+    <a href="#">contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge"><div class="dot"></div>open to roles</div>
+  <h1>Network Engineer<br>meets <span>Python Dev</span></h1>
+  <p class="subtitle">Building at the intersection of networking, automation, and AI — CCNA-track + Python + DSA + ML/LLM systems.</p>
+  <div class="cta-row">
+    <a class="btn btn-accent" href="#">view projects</a>
+    <a class="btn" href="#">github.com/heyshagor</a>
+    <a class="btn" href="#">download cv</a>
+  </div>
+</div>
+
+<div class="stack-row">
+  <span class="tag net">CCNA</span>
+  <span class="tag net">TCP/IP</span>
+  <span class="tag net">OSPF</span>
+  <span class="tag net">STP</span>
+  <span class="tag py">Python</span>
+  <span class="tag py">Netmiko</span>
+  <span class="tag py">Flask</span>
+  <span class="tag ai">ML/AI</span>
+  <span class="tag ai">LLM</span>
+  <span class="tag py">DSA</span>
+  <span class="tag py">Linux</span>
+</div>
+
+<div class="section">
+  <div class="section-label">featured projects</div>
+  <div class="projects">
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-net">🌐</div>
+      </div>
+      <div class="card-title">Network Monitor Dashboard</div>
+      <div class="card-desc">Live topology viewer with SNMP polling, alerting, and latency graphs across simulated GNS3 network.</div>
+      <div class="card-tags">
+        <span class="ct ct-n">networking</span>
+        <span class="ct ct-p">python</span>
+        <span class="ct ct-d">flask</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-py">⚙️</div>
+      </div>
+      <div class="card-title">BGP/OSPF Automation</div>
+      <div class="card-desc">Python scripts using Netmiko to auto-configure router interfaces, OSPF areas, and generate audit reports.</div>
+      <div class="card-tags">
+        <span class="ct ct-n">OSPF</span>
+        <span class="ct ct-p">netmiko</span>
+        <span class="ct ct-p">CLI</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-ai">🤖</div>
+      </div>
+      <div class="card-title">LLM Network Troubleshooter</div>
+      <div class="card-desc">Feed syslog/packet capture data to an LLM API to get plain-English root cause analysis and fix suggestions.</div>
+      <div class="card-tags">
+        <span class="ct ct-a">LLM</span>
+        <span class="ct ct-p">python</span>
+        <span class="ct ct-n">syslog</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-dsa">🧮</div>
+      </div>
+      <div class="card-title">Dijkstra Visualizer</div>
+      <div class="card-desc">Interactive shortest-path demo that mirrors how OSPF computes routing tables — DSA meets networking protocols.</div>
+      <div class="card-tags">
+        <span class="ct ct-d">DSA</span>
+        <span class="ct ct-p">python</span>
+        <span class="ct ct-n">OSPF</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-ai">📊</div>
+      </div>
+      <div class="card-title">Traffic Anomaly ML Model</div>
+      <div class="card-desc">Trained a classifier on netflow data to flag DDoS patterns — deployed as a lightweight REST API.</div>
+      <div class="card-tags">
+        <span class="ct ct-a">ML</span>
+        <span class="ct ct-p">scikit-learn</span>
+        <span class="ct ct-n">netflow</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ci-py">🐧</div>
+      </div>
+      <div class="card-title">Custom Linux ISO</div>
+      <div class="card-desc">Ubuntu 24.04 + Hyprland + macOS aesthetic — built with Cubic, automated dotfile config, WhiteSur theme.</div>
+      <div class="card-tags">
+        <span class="ct ct-d">Linux</span>
+        <span class="ct ct-p">Hyprland</span>
+        <span class="ct ct-d">Bash</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">skills & context</div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>proficiency</h3>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-name">Networking / CCNA</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:#60a5fa"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:65%;background:#a78bfa"></div></div></div>
+        <div class="skill-item"><span class="skill-name">DSA</span><div class="skill-bar"><div class="skill-fill" style="width:55%;background:#4af0a0"></div></div></div>
+        <div class="skill-item"><span class="skill-name">ML / AI</span><div class="skill-bar"><div class="skill-fill" style="width:45%;background:#f59e0b"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Linux / CLI</span><div class="skill-bar"><div class="skill-fill" style="width:80%;background:#4af0a0"></div></div></div>
+      </div>
+    </div>
+    <div class="about-card">
+      <h3>target roles</h3>
+      <p style="color:var(--text);margin-bottom:8px;font-size:13px">Network Automation Engineer</p>
+      <p style="color:var(--text);margin-bottom:8px;font-size:13px">AI Infrastructure Engineer</p>
+      <p style="color:var(--text);margin-bottom:8px;font-size:13px">Network Software Developer</p>
+      <p style="margin-top:12px">Differentiator: networking depth + software + AI — rare stack, high-value roles.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>heyshagor · built with github pages</span>
+  <span>dhaka, bangladesh</span>
+</footer>
