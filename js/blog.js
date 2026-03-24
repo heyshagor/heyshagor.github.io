@@ -202,3 +202,21 @@ function fmt(d,short){if(!d)return '—';return new Date(d).toLocaleDateString('
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 fetchPosts();
+
+// Mobile Menu
+const menuBtn=document.getElementById('menuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+const menuLinks=document.querySelectorAll('.mobile-menu-links a');
+
+if(menuBtn){
+  menuBtn.addEventListener('click',()=>{
+    menuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+  menuLinks.forEach(link=>{
+    link.addEventListener('click',()=>{
+      menuBtn.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
