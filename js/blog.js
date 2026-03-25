@@ -229,3 +229,7 @@ function fmt(d,short){if(!d)return '—';return new Date(d).toLocaleDateString('
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 fetchPosts();
+
+if(window.innerWidth <= 768){
+  document.body.style.paddingBottom = '80px';
+}

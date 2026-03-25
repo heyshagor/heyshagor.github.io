@@ -75,3 +75,7 @@ const tObs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.2});
 tItems.forEach(t=>tObs.observe(t));
+
+if(window.innerWidth <= 768){
+  document.body.style.paddingBottom = '80px';
+}
