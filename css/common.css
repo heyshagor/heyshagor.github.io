@@ -179,3 +179,8 @@ footer a:hover{color:var(--accent)}
 }
 
 .bottom-nav-item.active .bottom-nav-dot{opacity:1}
+
+@media(max-width:768px){
+  .cursor{display:none !important}
+  .cursor-ring{display:none !important}
+}
