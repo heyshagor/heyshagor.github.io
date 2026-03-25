@@ -75,22 +75,3 @@ const tObs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.2});
 tItems.forEach(t=>tObs.observe(t));
-
-// Mobile Menu
-const menuBtn=document.getElementById('menuBtn');
-const mobileMenu=document.getElementById('mobileMenu');
-const menuLinks=document.querySelectorAll('.mobile-menu-links a');
-
-menuBtn.addEventListener('click',()=>{
-  menuBtn.classList.toggle('active');
-  mobileMenu.classList.toggle('active');
-  document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';
-});
-
-menuLinks.forEach(link=>{
-  link.addEventListener('click',()=>{
-    menuBtn.classList.remove('active');
-    mobileMenu.classList.remove('active');
-    document.body.style.overflow='';
-  });
-});
