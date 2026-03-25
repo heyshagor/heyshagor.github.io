@@ -16,6 +16,7 @@
   --accent4:#b06cff;
   --red:#ff4d6a;
 }
+
 html{
   scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;

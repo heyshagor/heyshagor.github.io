@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shagor — Full 16 Week Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/x-icon" href="image/myicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="image/myicon.ico"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+   
+    <style>
+        :root {
+            --font-sans: 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --color-background-primary: #020617;
+            --color-background-secondary: #0f172a;
+            --color-text-primary: #f8fafc;
+            --color-text-secondary: #cbd5e1;
+            --color-text-tertiary: #64748b;
+            --color-border-secondary: #1e293b;
+            --color-border-tertiary: #334155;
+            --border-radius-lg: 14px;
+            --border-radius-md: 8px;
+            --brand-green: #1D9E75;
+        }
+
+        body { background-color: var(--color-background-primary); color: var(--color-text-primary); margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* Roadmap Container */
+        .rm { padding: 2rem 20px; font-family: var(--font-sans); max-width: 1000px; margin: auto; min-height: 80vh; }
+        
+        /* Progress & Badges */
+        .grad-badge { font-size: 12px; font-weight: 500; background: rgba(29, 158, 117, 0.1); color: var(--brand-green); padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px; border: 1px solid rgba(29, 158, 117, 0.2); }
+        .pbar { height: 6px; background: var(--color-border-tertiary); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+        .pfill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--brand-green), #5DCAA5); transition: width .5s ease; }
+        .prow { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-secondary); margin-bottom: 6px; font-family: var(--font-mono); }
+        
+        /* Navigation Tabs */
+        .top-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .mb { font-size: 12px; padding: 6px 16px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: transparent; color: var(--color-text-secondary); cursor: pointer; transition: 0.2s; }
+        .mb.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; font-weight: 600; }
+
+        /* Week Cards */
+        .wcard { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 10px; overflow: hidden; transition: 0.2s; }
+        .wh { display: flex; align-items: center; gap: 12px; padding: 14px; cursor: pointer; user-select: none; }
+        .wnum { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; flex-shrink: 0; }
+        .wtitle { font-size: 14px; font-weight: 500; color: var(--color-text-primary); flex: 1; }
+        .wdates { font-size: 11px; color: var(--color-text-tertiary); font-family: var(--font-mono); }
+        .chev { font-size: 10px; color: var(--color-text-tertiary); transition: transform .2s; }
+        .chev.open { transform: rotate(90deg); }
+        
+        /* Expanding Body */
+        .wb { display: none; padding: 0 14px 14px; border-top: 1px solid var(--color-border-secondary); padding-top: 15px; }
+        .wb.open { display: block; }
+        
+        /* Grid Layout */
+        .dgrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+        .dn { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 4px; text-align: center; }
+        .db { border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); padding: 8px 6px; font-size: 11px; background: var(--color-background-secondary); min-height: 60px; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        /* Colors for different categories */
+        .db.net { background: #E6F1FB; border-color: #85B7EB; color: #0C447C; }
+        .db.py { background: #E1F5EE; border-color: #5DCAA5; color: #085041; }
+        .db.dsa { background: #EEEDFE; border-color: #AFA9EC; color: #3C3489; }
+        .db.mix { background: #FFF8EE; border-color: #EF9F27; color: #633806; }
+        .db.rev { background: #F1EFE8; border-color: #B4B2A9; color: #444441; }
+        .db.proj { background: #FAEEDA; border-color: #FAC775; color: #633806; }
+
+        .tag { font-size: 8px; font-weight: bold; padding: 1px 4px; border-radius: 4px; margin-top: 4px; align-self: flex-start; text-transform: uppercase; }
+        .tn { background: #B5D4F4; color: #0C447C; }
+        .tp { background: #9FE1CB; color: #085041; }
+        .td { background: #CECBF6; color: #3C3489; }
+        .tj { background: #FAC775; color: #633806; }
+
+        .pbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; margin-bottom: 10px; border-left: 4px solid var(--brand-green); }
+        .ptitle { font-size: 13px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px; }
+        .pdesc { font-size: 12px; color: var(--color-text-secondary); }
+
+        .ckbox { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--color-border-secondary); cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: transparent; background: transparent; }
+        .ckbox.chk { background: var(--brand-green); border-color: var(--brand-green); color: #fff; }
+        
+        .hid { display: none; }
+        .abtn { display: inline-block; font-size: 11px; padding: 6px 12px; border-radius: 6px; border: 0.5px solid var(--color-border-secondary); background: transparent; color: var(--color-text-primary); cursor: pointer; margin-top: 8px; margin-right: 6px; text-decoration: none; font-family: var(--font-mono); }
+        .abtn:hover { background: var(--color-border-tertiary); }
+        
+        @media (max-width: 768px) { .dgrid { grid-template-columns: repeat(3, 1fr); } }
+    </style>
+     <link rel="stylesheet" href="css/plan.css"/>
+</head>
+<body>
+
+<nav>
+    <div class="logo site-wrapper">
+        heyshagor@portfolio:~$<span class="logo-blink">▋</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">home</a></li>
+        <li><a href="index.html#roadmap">roadmap</a></li>
+        <li><a href="blog.html">$blog</a></li>
+    </ul>
+    <div class="nav-status">
+        <div class="status-dot"></div>
+        available for roles
+    </div>
+</nav>
+<br>
+<br>
+<div class="rm">
+    <div style="font-size:24px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px; font-family: var(--font-mono);">
+        <span style="color: var(--brand-green);">heyshagor@roadmap:~$</span> ./start_journey.sh
+    </div>
+    <div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:8px">Starts <strong>Sat 28 Mar 2026</strong> · Study: Sat–Thu · Friday = Off</div>
+    <div class="grad-badge">Target Graduation: Thu 16 Jul 2026</div>
+
+    <div class="prow"><span>Career Progress</span><span id="plbl">0 / 16 weeks</span></div>
+    <div class="pbar"><div class="pfill" id="pf" style="width:0%"></div></div>
+
+    <div class="top-bar">
+        <button class="mb active" onclick="showM(0,this)">Month 1</button>
+        <button class="mb" onclick="showM(1,this)">Month 2</button>
+        <button class="mb" onclick="showM(2,this)">Month 3</button>
+        <button class="mb" onclick="showM(3,this)">Month 4</button>
+    </div>
+
+    <div id="m0">
+        <div class="wcard">
+            <div class="wh" onclick="tog('w1')">
+                <div class="ckbox" id="ck1" onclick="event.stopPropagation();mark(1)"></div>
+                <span class="wnum" style="background:#E6F1FB;color:#185FA5">Week 1</span>
+                <span class="wtitle">How the internet works</span>
+                <span class="wdates">28 Mar – 3 Apr</span>
+                <span class="chev" id="chw1">▶</span>
+            </div>
+            <div class="wb" id="w1">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 28</div><div class="db net">OSI model 7 layers<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 29</div><div class="db mix">TCP/IP vs OSI<br>Python Setup<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 30</div><div class="db mix">Encapsulation<br>Big-O Intro<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 31</div><div class="db py">Vars & Functions<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 1</div><div class="db rev">Review OSI<br>Time Complexity<span class="tag tr">REV</span></div></div>
+                    <div class="dc"><div class="dn">Thu 2</div><div class="db proj">Manual Lab<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Explain the OSI model layers for CCNA')">OSI Guide ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w2')">
+                <div class="ckbox" id="ck2" onclick="event.stopPropagation();mark(2)"></div>
+                <span class="wnum" style="background:#E6F1FB;color:#185FA5">Week 2</span>
+                <span class="wtitle">IP Addresses & Subnetting</span>
+                <span class="wdates">4 – 10 Apr</span>
+                <span class="chev" id="chw2">▶</span>
+            </div>
+            <div class="wb" id="w2">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 4</div><div class="db net">IPv4 classes A/B/C<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 5</div><div class="db mix">Subnet masks<br>Python: lists<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 6</div><div class="db mix">Subnet math<br>Arrays<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 7</div><div class="db py">Dicts & sets<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 8</div><div class="db net">Public/Private IP<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 9</div><div class="db proj">Python Calc<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Help me write a subnet calculator in Python step by step')">Subnet Project ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w3')">
+                <div class="ckbox" id="ck3" onclick="event.stopPropagation();mark(3)"></div>
+                <span class="wnum" style="background:#E6F1FB;color:#185FA5">Week 3</span>
+                <span class="wtitle">DNS, DHCP & Web Ops</span>
+                <span class="wdates">11 – 17 Apr</span>
+                <span class="chev" id="chw3">▶</span>
+            </div>
+            <div class="wb" id="w3">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 11</div><div class="db net">DNS Flow<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 12</div><div class="db mix">DHCP Intro<br>Errors<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 13</div><div class="db mix">HTTP vs HTTPS<br>Stacks<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 14</div><div class="db py">File I/O<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 15</div><div class="db dsa">Queues<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Thu 16</div><div class="db proj">DNS Tool<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('How does DNS resolution work step by step')">DNS Concept ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w4')">
+                <div class="ckbox" id="ck4" onclick="event.stopPropagation();mark(4)"></div>
+                <span class="wnum" style="background:#F1EFE8;color:#444441">Week 4</span>
+                <span class="wtitle">Review & Network Pinger</span>
+                <span class="wdates">18 – 24 Apr</span>
+                <span class="chev" id="chw4">▶</span>
+            </div>
+            <div class="wb" id="w4">
+                <div class="pbox"><div class="ptitle">Milestone: Network Pinger</div><div class="pdesc">Read IPs from a file, check if they are alive, and save a report.</div></div>
+                <button class="abtn" onclick="sendPrompt('Write a Python network pinger that reads from a file')">Pinger Code ↗</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m1" class="hid">
+        <div class="wcard">
+            <div class="wh" onclick="tog('w5')">
+                <div class="ckbox" id="ck5" onclick="event.stopPropagation();mark(5)"></div>
+                <span class="wnum" style="background:#EAF3DE;color:#3B6D11">Week 5</span>
+                <span class="wtitle">Routers & VLANs</span>
+                <span class="wdates">25 Apr – 1 May</span>
+                <span class="chev" id="chw5">▶</span>
+            </div>
+            <div class="wb" id="w5">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 25</div><div class="db net">Routing Tables<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 26</div><div class="db py">Python OOP<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 27</div><div class="db dsa">Linked Lists<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 28</div><div class="db py">Inheritance<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 29</div><div class="db net">VLAN Config<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 30</div><div class="db proj">Device Class<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Explain VLAN configuration in Cisco Packet Tracer')">VLAN Guide ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w6')">
+                <div class="ckbox" id="ck6" onclick="event.stopPropagation();mark(6)"></div>
+                <span class="wnum" style="background:#EAF3DE;color:#3B6D11">Week 6</span>
+                <span class="wtitle">TCP vs UDP & Ports</span>
+                <span class="wdates">2 – 8 May</span>
+                <span class="chev" id="chw6">▶</span>
+            </div>
+            <div class="wb" id="w6">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 2</div><div class="db net">TCP Handshake<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 3</div><div class="db mix">UDP speed<br>Socket Client<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 4</div><div class="db mix">Common Ports<br>Binary Search<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 5</div><div class="db py">Echo Server<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 6</div><div class="db net">Wireshark Lab<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 7</div><div class="db proj">Port Scanner<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Python script for simple TCP port scanner')">Scanner Code ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w7')">
+                <div class="ckbox" id="ck7" onclick="event.stopPropagation();mark(7)"></div>
+                <span class="wnum" style="background:#EEEDFE;color:#534AB7">Week 7</span>
+                <span class="wtitle">OSPF & Dijkstra</span>
+                <span class="wdates">9 – 15 May</span>
+                <span class="chev" id="chw7">▶</span>
+            </div>
+            <div class="wb" id="w7">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 9</div><div class="db net">Dyn Routing<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 10</div><div class="db dsa">Graph Basics<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Mon 11</div><div class="db dsa">BFS Algorithm<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 12</div><div class="db dsa">DFS Algorithm<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Wed 13</div><div class="db dsa">Dijkstra code<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Thu 14</div><div class="db proj">Path Finder<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Dijkstra algorithm explanation and Python code')">Dijkstra Logic ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w8')">
+                <div class="ckbox" id="ck8" onclick="event.stopPropagation();mark(8)"></div>
+                <span class="wnum" style="background:#F1EFE8;color:#444441">Week 8</span>
+                <span class="wtitle">Review & CCNA Mock</span>
+                <span class="wdates">16 – 22 May</span>
+                <span class="chev" id="chw8">▶</span>
+            </div>
+            <div class="wb" id="w8">
+                <button class="abtn" onclick="sendPrompt('CCNA routing and switching practice questions')">CCNA Practice ↗</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m2" class="hid">
+        <div class="wcard">
+            <div class="wh" onclick="tog('w9')">
+                <div class="ckbox" id="ck9" onclick="event.stopPropagation();mark(9)"></div>
+                <span class="wnum" style="background:#FAEEDA;color:#854F0B">Week 9</span>
+                <span class="wtitle">Security & ACLs</span>
+                <span class="wdates">23 – 29 May</span>
+                <span class="chev" id="chw9">▶</span>
+            </div>
+            <div class="wb" id="w9">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 23</div><div class="db net">Firewalls<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 24</div><div class="db mix">ACL rules<br>Argparse CLI<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 25</div><div class="db dsa">Hash Tables<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 26</div><div class="db py">Subprocess<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 27</div><div class="db net">ACL Lab<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 28</div><div class="db proj">Rule Checker<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('How Cisco ACLs work with allow and deny rules')">ACL Guide ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w10')">
+                <div class="ckbox" id="ck10" onclick="event.stopPropagation();mark(10)"></div>
+                <span class="wnum" style="background:#FAEEDA;color:#854F0B">Week 10</span>
+                <span class="wtitle">Netmiko Automation</span>
+                <span class="wdates">30 May – 5 Jun</span>
+                <span class="chev" id="chw10">▶</span>
+            </div>
+            <div class="wb" id="w10">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 30</div><div class="db py">Netmiko Basics<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Sun 31</div><div class="db net">GNS3 Setup<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Mon 1</div><div class="db py">SSH Send Cmd<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Tue 2</div><div class="db py">Regex Parsing<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 3</div><div class="db py">Multi-Device<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Thu 4</div><div class="db proj">Config Backup<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Python Netmiko script to backup Cisco router config')">Automation Code ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w11')">
+                <div class="ckbox" id="ck11" onclick="event.stopPropagation();mark(11)"></div>
+                <span class="wnum" style="background:#EEEDFE;color:#534AB7">Week 11</span>
+                <span class="wtitle">STP & Prim's MST</span>
+                <span class="wdates">6 – 12 Jun</span>
+                <span class="chev" id="chw11">▶</span>
+            </div>
+            <div class="wb" id="w11">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 6</div><div class="db net">STP prevents loops<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 7</div><div class="db dsa">Prim's MST logic<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Mon 8</div><div class="db dsa">Prim's in Python<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 9</div><div class="db dsa">LC Graphs<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Wed 10</div><div class="db net">Root Bridge Lab<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 11</div><div class="db proj">Topo Visualizer<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('Spanning Tree Protocol vs Prim algorithm')">STP Logic ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w12')">
+                <div class="ckbox" id="ck12" onclick="event.stopPropagation();mark(12)"></div>
+                <span class="wnum" style="background:#F1EFE8;color:#444441">Week 12</span>
+                <span class="wtitle">Network Audit Project</span>
+                <span class="wdates">13 – 19 Jun</span>
+                <span class="chev" id="chw12">▶</span>
+            </div>
+            <div class="wb" id="w12">
+                <div class="pbox"><div class="ptitle">Milestone: Audit Tool</div><div class="pdesc">SSH into devices, check port status, and generate a health report.</div></div>
+                <button class="abtn" onclick="sendPrompt('Build a network audit tool in Python with Netmiko')">Project Help ↗</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m3" class="hid">
+        <div class="wcard">
+            <div class="wh" onclick="tog('w13')">
+                <div class="ckbox" id="ck13" onclick="event.stopPropagation();mark(13)"></div>
+                <span class="wnum" style="background:#E1F5EE;color:#0F6E56">Week 13</span>
+                <span class="wtitle">Cloud & IPv6</span>
+                <span class="wdates">20 – 26 Jun</span>
+                <span class="chev" id="chw13">▶</span>
+            </div>
+            <div class="wb" id="w13">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 20</div><div class="db net">IPv6 Formats<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Sun 21</div><div class="db py">AWS Boto3<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 22</div><div class="db dsa">Tries Intro<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 23</div><div class="db py">AWS API Calls<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 24</div><div class="db net">VLAN in Cloud<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Thu 25</div><div class="db proj">Sec Group List<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('What is an AWS VPC and how to use Boto3')">AWS Guide ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w14')">
+                <div class="ckbox" id="ck14" onclick="event.stopPropagation();mark(14)"></div>
+                <span class="wnum" style="background:#E1F5EE;color:#0F6E56">Week 14</span>
+                <span class="wtitle">REST APIs & SNMP</span>
+                <span class="wdates">27 Jun – 3 Jul</span>
+                <span class="chev" id="chw14">▶</span>
+            </div>
+            <div class="wb" id="w14">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 27</div><div class="db py">Requests Lib<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Sun 28</div><div class="db net">DNA Center<span class="tag tn">NET</span></div></div>
+                    <div class="dc"><div class="dn">Mon 29</div><div class="db dsa">Merge Sort<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 30</div><div class="db py">PySNMP library<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 1</div><div class="db dsa">Quick Sort<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Thu 2</div><div class="db proj">SNMP Poller<span class="tag tj">PROJ</span></div></div>
+                </div>
+                <button class="abtn" onclick="sendPrompt('How to use Python PySNMP to poll device info')">SNMP Guide ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w15')">
+                <div class="ckbox" id="ck15" onclick="event.stopPropagation();mark(15)"></div>
+                <span class="wnum" style="background:#EEEDFE;color:#534AB7">Week 15</span>
+                <span class="wtitle">Job Interview Prep</span>
+                <span class="wdates">4 – 10 Jul</span>
+                <span class="chev" id="chw15">▶</span>
+            </div>
+            <div class="wb" id="w15">
+                <button class="abtn" onclick="sendPrompt('Common network engineer interview questions for juniors')">Interview Qs ↗</button>
+            </div>
+        </div>
+        <div class="wcard">
+            <div class="wh" onclick="tog('w16')">
+                <div class="ckbox" id="ck16" onclick="event.stopPropagation();mark(16)"></div>
+                <span class="wnum" style="background:#FAEEDA;color:#854F0B">Week 16</span>
+                <span class="wtitle">Final Graduation Build</span>
+                <span class="wdates">11 – 16 Jul</span>
+                <span class="chev" id="chw16">▶</span>
+            </div>
+            <div class="wb" id="w16">
+                <div class="pbox"><div class="ptitle">Full Network Dashboard</div><div class="pdesc">Python + Flask + SNMP + SQLite. A complete monitoring UI.</div></div>
+                <button class="abtn" onclick="sendPrompt('How to build a network monitoring dashboard with Python Flask')">Final Project ↗</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+  <span class="fl">heyshagor · <span>heyshagor.github.io</span></span>
+  <span class="fl">built with html · deployed on github pages</span>
+  <span class="fl">phase 1 ends <span>jul 16 2026</span></span>
+</footer>
+
+<nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item active">...home...</a>
+    <a href="blog.html" class="bottom-nav-item">...$blog...</a>
+</nav>
+
+<script src="js/index.js"></script>
+<script>
+    var done = JSON.parse(localStorage.getItem('shagor_v16_data')) || {};
+    var total = 16;
+
+    function init() {
+        for (var n in done) {
+            if (done[n]) {
+                var el = document.getElementById('ck' + n);
+                if (el) { el.classList.add('chk'); el.textContent = '✓'; }
+            }
+        }
+        updateProgress();
+        tog('w1');
+    }
+
+    function tog(id) {
+        var b = document.getElementById(id);
+        var n = id.replace('w', '');
+        var c = document.getElementById('chw'+n);
+        var o = b.classList.contains('open');
+        b.classList.toggle('open', !o);
+        if (c) c.classList.toggle('open', !o);
+    }
+
+    function showM(n, btn) {
+        for (var i = 0; i < 4; i++) {
+            var el = document.getElementById('m' + i);
+            if (el) el.classList.toggle('hid', i !== n);
+        }
+        document.querySelectorAll('.mb').forEach(function(b, i) {
+            b.classList.toggle('active', i === n);
+        });
+    }
+
+    function mark(n) {
+        var el = document.getElementById('ck' + n);
+        var was = el.classList.contains('chk');
+        el.classList.toggle('chk', !was);
+        el.textContent = !was ? '✓' : '';
+        done[n] = !was;
+        localStorage.setItem('shagor_v16_data', JSON.stringify(done));
+        updateProgress();
+    }
+
+    function updateProgress() {
+        var cnt = Object.values(done).filter(Boolean).length;
+        var pct = Math.round((cnt / total) * 100);
+        document.getElementById('pf').style.width = pct + '%';
+        document.getElementById('plbl').textContent = cnt + ' / ' + total + ' weeks';
+    }
+
+    function sendPrompt(text) {
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(text), '_blank');
+    }
+
+    window.onload = init;
+</script>
+
+</body>
+</html>

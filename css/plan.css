@@ -1,0 +1,8 @@
+
+
+/* 4. Ensure footer doesn't overlap */
+footer {
+    margin-top: auto;
+    padding: 20px;
+    background: var(--color-background-primary);
+}
