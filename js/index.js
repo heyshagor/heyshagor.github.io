@@ -79,3 +79,51 @@ tItems.forEach(t=>tObs.observe(t));
 if(window.innerWidth <= 768){
   document.body.style.paddingBottom = '80px';
 }
+
+// Blog preview on homepage
+const BP_PROXY = 'https://blog.itzshagor9.workers.dev';
+const BP_DB = '32de0ba30e7280cb9369febbee4d4126';
+
+async function loadBlogPreview() {
+  const grid = document.getElementById('blogPreviewGrid');
+  if(!grid) return;
+  try {
+    const res = await fetch(`${BP_PROXY}/v1/databases/${BP_DB}/query`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        filter:{property:'Published',checkbox:{equals:true}},
+        sorts:[{property:'Date',direction:'descending'}],
+        page_size:6
+      })
+    });
+    if(!res.ok) throw new Error('failed');
+    const data = await res.json();
+    if(data.object==='error') throw new Error(data.message);
+
+    const posts = data.results.map((p,i)=>({
+      id:p.id,
+      num:String(data.results.length-i).padStart(2,'0'),
+      title:p.properties.Title?.title?.[0]?.plain_text||'Untitled',
+      date:p.properties.Date?.date?.start||'',
+      category:p.properties.Category?.select?.name||'',
+    }));
+
+    grid.innerHTML = posts.map(p=>`
+      <a href="blog.html" class="bp-card">
+        <div class="bp-num">${p.num}</div>
+        <div class="bp-cat ${bpCat(p.category)}">${p.category||'general'}</div>
+        <div class="bp-title">${bpEsc(p.title)}</div>
+        <div class="bp-date">◈ ${bpFmt(p.date)}</div>
+        <span class="bp-arrow">↗</span>
+      </a>`).join('');
+  } catch(e) {
+    grid.innerHTML = `<div class="bp-loading"><p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3)">// posts unavailable</p></div>`;
+  }
+}
+
+function bpCat(c){if(!c)return 'cat-default';const m={'networking':'cat-networking','python':'cat-python','dsa':'cat-dsa','study':'cat-study','studynotes':'cat-study','project':'cat-project','tutorial':'cat-tutorial','article':'cat-article','guide':'cat-guide'};return m[c.toLowerCase().replace(/\s+/g,'')]||'cat-default';}
+function bpFmt(d){if(!d)return '—';return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+function bpEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+loadBlogPreview();
