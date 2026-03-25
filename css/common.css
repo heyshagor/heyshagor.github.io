@@ -160,12 +160,22 @@ footer a:hover{color:var(--accent)}
 .bottom-nav-item:hover,
 .bottom-nav-item.active{color:#00ff88}
 .bottom-nav-icon{
-  width:22px;height:22px;
-  stroke:currentColor;fill:none;
-  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity: 1;
 }
-.bottom-nav-dot{
-  width:3px;height:3px;border-radius:50%;
-  background:#00ff88;opacity:0;margin-top:1px;
+.bottom-nav-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #00ff88;
+  opacity: 0;  /* ← check this is 0 not 1 */
+  margin-top: 1px;
 }
+
 .bottom-nav-item.active .bottom-nav-dot{opacity:1}
