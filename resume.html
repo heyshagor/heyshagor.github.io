@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - First Last</title>
+    <style>
+        :root {
+            --primary-purple: #6e4bb3;
+            --bg-sidebar: #f5f3ff;
+            --text-dark: #333;
+            --text-gray: #666;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            display: flex;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left Column */
+        .main-content {
+            flex: 2;
+            padding: 40px;
+        }
+
+        /* Right Column */
+        .sidebar {
+            flex: 1;
+            background-color: var(--bg-sidebar);
+            padding: 40px 25px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-purple);
+            margin: 0;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .job-title-header {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-purple);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+        }
+
+        .entry-sub-header {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Sidebar Elements */
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar h3 {
+            color: var(--primary-purple);
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar p, .sidebar li {
+            font-size: 13px;
+            color: #4b5563;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+        }
+
+        .skill-category {
+            font-style: italic;
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-title {
+            font-weight: bold;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/cv.css">
+</head>
+<body>
+    <nav>
+  <a href="index.html" class="logo">heyshagor@cv:~$ ./resume.sh<span class="blink"> ▋</span></a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="blog.html">$blog</a>
+    </div>
+    <button class="print-btn" onclick="window.print()">print / save pdf</button>
+  </div>
+</nav>
+
+<div class="resume-container">
+    <main class="main-content">
+        <header>
+            <h1>First Last</h1>
+            <div class="job-title-header">Entry Level Network Engineer</div>
+        </header>
+
+        <section>
+            <h2>Work Experience</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span>Resume Worded, New York, NY</span>
+                </div>
+                <div class="entry-sub-header">
+                    <span>Entry Level Network Engineer</span>
+                    <span>01/2015 – Present</span>
+                </div>
+                <ul>
+                    <li>Assisted senior engineers in managing network infrastructures, contributing to deploying 10+ new grid systems within set timelines.</li>
+                    <li>Conducted network audits to assess compliance with industry standards, improving rating and security by 93%.</li>
+                    <li>Offered end-users technical aid and troubleshooting services, leading to a 90% client satisfaction rating based on 1,800+ feedback surveys.</li>
+                    <li>Cooperated with team members to set up and maintain VPNs, facilitating secure access and contributing to a 74% progress in workforce productivity.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span>Growthsi, San Francisco, CA</span>
+                </div>
+                <div class="entry-sub-header">
+                    <span>Network Security Analyst (Internship)</span>
+                    <span>06/2010 – 12/2014</span>
+                </div>
+                <ul>
+                    <li>Executed security understanding workshops for 100+ employees, increasing awareness scores by 45% and encouraging a security-conscious culture.</li>
+                    <li>Introduced an enterprise-grade antivirus solution that reduced malware infections by 70% and protected vital systems and data integrity.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Volunteering Activities and Extracurriculars</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span>Resume Worded's Business Society, New York, NY</span>
+                </div>
+                <div class="entry-sub-header">
+                    <span>IT Support Specialist</span>
+                    <span>06/2009 – 04/2010</span>
+                </div>
+                <ul>
+                    <li>Provided technical support to 140+ end-users, maintaining an 89% customer satisfaction rating based on post-resolution surveys.</li>
+                    <li>Aided in configuring video conferencing systems, enabling virtual collaboration, and reducing travel costs by $6,400+ annually.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span>Network Traffic Analysis and Bandwidth Optimization</span>
+                    <span>05/2009</span>
+                </div>
+                <ul>
+                    <li>Analyzed network traffic patterns to identify 20+ bandwidth-hungry applications and users.</li>
+                    <li>Implemented Quality of Service (QoS) policies to optimize 45% of bandwidth utilization.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <h3>Contact</h3>
+            <p>Madison, WI (Open to Remote)</p>
+            <p>+1-234-456-789</p>
+            <p>email@resumeworded.com</p>
+            <p>linkedin.com/in/username</p>
+            <p>github.com/resumeworded</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Skills</h3>
+            <div class="skill-category">Hard Skills:</div>
+            <p>Network Virtualization • Subnetting • Network Protocols • Troubleshooting • Load Balancing</p>
+            
+            <div class="skill-category">Techniques:</div>
+            <p>Penetration Tests • Network Configuration • Traffic Prioritization</p>
+            
+            <div class="skill-category">Tools:</div>
+            <p>Wireshark • Nagios • Iperf • Cisco IOS • Cacti</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Education</h3>
+            <div class="education-item">
+                <span class="education-title">Resume Worded University</span>
+                <p>Associate in Computer Science<br>Network Engineering<br>Boston, MA — 05/2010</p>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Other</h3>
+            <p>• Cisco Certified Network Associate (CCNA) - 2019</p>
+            <p>• Juniper Networks Certified Associate (JNCIA-Junos) - 2011</p>
+            <p>• Aruba Certified Mobility Associate (ACMA) - 2009</p>
+        </div>
+    </aside>
+</div>
+
+</body>
+<script src="js/resume.js"></script>
+</html>
