@@ -1,387 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CV — Md Shagor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<link rel="icon" type="image/x-icon" href="image/myicon.ico"/>
-<link rel="stylesheet" href="css/common.css"/>
-<link rel="stylesheet" href="css/cv.css">
-</head>
-<body>
-<nav>
-  <a href="index.html" class="logo">heyshagor@cv:~$ ./resume.sh<span class="blink"> ▋</span></a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="index.html">home</a>
-      <a href="blog.html">$blog</a>
-    </div>
-    <button class="print-btn" onclick="window.print()">print / save pdf</button>
-  </div>
-</nav>
-
-<main>
-
-<!-- HEADER -->
-<div class="cv-header">
-  <div class="cv-photo-wrap">
-    <img src="image/shagor.png" alt="Md Shagor" class="cv-photo"/>
-    <div class="cv-photo-ring"></div>
-    <div class="cv-photo-dot"></div>
-  </div>
-  <div>
-    <h1 class="cv-name">Md <span>Shagor</span></h1>
-    <div class="cv-role">network engineer · python developer · dhaka, bd</div>
-    <p class="cv-tagline">Aspiring Network Engineer building at the intersection of networking, Python automation, and AI. Targeting high-value roles through a rare combination of protocol-level knowledge and software development skills.</p>
-    <div class="cv-status"><div class="sdot"></div>open to opportunities</div>
-  </div>
-  <div class="cv-contacts">
-    <a href="https://github.com/heyshagor" class="cv-contact-item">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      github.com/heyshagor
-    </a>
-    <a href="mailto:itzshagor9@gmail.com" class="cv-contact-item">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      itzshagor9@gmail.com
-    </a>
-    <a href="https://heyshagor.github.io" class="cv-contact-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      heyshagor.github.io
-    </a>
-    <a href="https://linkedin.com/in/itzshagor" class="cv-contact-item">
-      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      linkedin.com/in/itzshagor
-    </a>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">Dhaka, Bangladesh</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="01">about</div>
-  <div class="terminal-card">
-    <div class="terminal-bar">
-      <div class="tdot td1"></div><div class="tdot td2"></div><div class="tdot td3"></div>
-      <div class="terminal-title">shagor — zsh</div>
-    </div>
-    <div class="terminal-body">
-      <div class="tline"><span class="prompt">❯ </span><span class="cmd">cat about.txt</span></div>
-      <div class="tline"><span class="out info">Aspiring Network Engineer with a self-directed learning approach.</span></div>
-      <div class="tline"><span class="out info">Combining CCNA-track networking with Python and DSA to target</span></div>
-      <div class="tline"><span class="out info">automation, AI infrastructure, and protocol-level dev roles.</span></div>
-      <div class="tline" style="margin-top:8px"><span class="prompt">❯ </span><span class="cmd">cat differentiator.txt</span></div>
-      <div class="tline"><span class="out ok">Most engineers choose networking OR software. I'm building both.</span></div>
-      <div class="tline"><span class="out ok">This opens doors to Network Automation, AI Infrastructure, and</span></div>
-      <div class="tline"><span class="out ok">Network Software Development — a rare and high-value combination.</span></div>
-      <div class="tline" style="margin-top:8px"><span class="prompt">❯ <span style="animation:blink 1.2s step-end infinite">▋</span></span></div>
-    </div>
-  </div>
-</div>
-
-<!-- SKILLS -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="02">skills & stack</div>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">networking</div>
-      <div class="skill-tags">
-        <span class="stag stag-n">TCP/IP</span>
-        <span class="stag stag-n">OSPF</span>
-        <span class="stag stag-n">BGP</span>
-        <span class="stag stag-n">STP</span>
-        <span class="stag stag-n">VLANs</span>
-        <span class="stag stag-n">Subnetting</span>
-        <span class="stag stag-n">ACLs</span>
-        <span class="stag stag-n">NAT</span>
-        <span class="stag stag-n">CCNA track</span>
-        <span class="stag stag-n">GNS3</span>
-        <span class="stag stag-n">Wireshark</span>
-        <span class="stag stag-n">SNMP</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV — Md Shagor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="image/myicon.ico" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/cv.css">
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="logo">heyshagor@cv:~$ ./resume.sh <span class="blink"> ▋</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html">home</a>
+          <a href="blog.html">$blog</a>
+        </div>
+        <button class="print-btn" onclick="window.print()">print / save pdf</button>
       </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">python & automation</div>
-      <div class="skill-tags">
-        <span class="stag stag-p">Python</span>
-        <span class="stag stag-p">Netmiko</span>
-        <span class="stag stag-p">Flask</span>
-        <span class="stag stag-p">FastAPI</span>
-        <span class="stag stag-p">Django</span>
-        <span class="stag stag-p">REST APIs</span>
-        <span class="stag stag-p">JSON/CSV</span>
-        <span class="stag stag-p">OOP</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">dsa & algorithms</div>
-      <div class="skill-tags">
-        <span class="stag stag-g">Dijkstra</span>
-        <span class="stag stag-g">BFS / DFS</span>
-        <span class="stag stag-g">Linked Lists</span>
-        <span class="stag stag-g">Stacks / Queues</span>
-        <span class="stag stag-g">Trees</span>
-        <span class="stag stag-g">Graphs</span>
-        <span class="stag stag-g">Complexity</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">ai / ml & tools</div>
-      <div class="skill-tags">
-        <span class="stag stag-a">scikit-learn</span>
-        <span class="stag stag-a">LLM APIs</span>
-        <span class="stag stag-a">ML basics</span>
-        <span class="stag stag-g">Linux</span>
-        <span class="stag stag-g">Hyprland</span>
-        <span class="stag stag-g">Git</span>
-        <span class="stag stag-g">GitHub Pages</span>
-        <span class="stag stag-g">Bash</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- EDUCATION & LEARNING -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="03">education & learning</div>
-
-  <div class="cv-item">
-    <div class="cv-item-left">
-      <div class="cv-item-title">16-Week Network Engineering Program — Phase 1</div>
-      <div class="cv-item-org">self-directed · structured study plan</div>
-      <div class="cv-item-desc">Comprehensive self-directed program covering CCNA-track networking, Python programming, DSA, and introductory ML/AI. Includes weekly projects, GitHub milestones, and a capstone live network monitoring dashboard.</div>
-      <div class="cv-item-tags">
-        <span class="stag stag-n" style="font-size:9px">CCNA track</span>
-        <span class="stag stag-p" style="font-size:9px">Python</span>
-        <span class="stag stag-g" style="font-size:9px">DSA</span>
-        <span class="stag stag-a" style="font-size:9px">ML/AI</span>
-      </div>
-    </div>
-    <div class="cv-item-right">
-      <div class="cv-item-date">Mar 2026 – Jul 2026</div>
-      <span class="cv-item-status status-active">in progress</span>
-    </div>
-  </div>
-
-  <div class="cv-item">
-    <div class="cv-item-left">
-      <div class="cv-item-title">Linux System Administration & Customization</div>
-      <div class="cv-item-org">self-directed · practical project-based</div>
-      <div class="cv-item-desc">Built a custom Ubuntu 24.04 ISO with Hyprland WM from source. Covers boot optimization, systemd, package management, shell scripting, and custom build pipelines using Cubic.</div>
-      <div class="cv-item-tags">
-        <span class="stag stag-g" style="font-size:9px">Ubuntu</span>
-        <span class="stag stag-g" style="font-size:9px">Hyprland</span>
-        <span class="stag stag-g" style="font-size:9px">Bash</span>
-        <span class="stag stag-g" style="font-size:9px">systemd</span>
-      </div>
-    </div>
-    <div class="cv-item-right">
-      <div class="cv-item-date">2025 – present</div>
-      <span class="cv-item-status status-active">ongoing</span>
-    </div>
-  </div>
-
-  <div class="cv-item">
-    <div class="cv-item-left">
-      <div class="cv-item-title">Web Development — HTML / CSS / JavaScript</div>
-      <div class="cv-item-org">self-directed · portfolio project</div>
-      <div class="cv-item-desc">Built and deployed a full portfolio website with Notion-powered blog, Cloudflare Worker proxy, GitHub Pages hosting, and mobile-responsive design.</div>
-      <div class="cv-item-tags">
-        <span class="stag stag-p" style="font-size:9px">HTML/CSS</span>
-        <span class="stag stag-p" style="font-size:9px">JavaScript</span>
-        <span class="stag stag-g" style="font-size:9px">GitHub Pages</span>
-        <span class="stag stag-n" style="font-size:9px">Notion API</span>
-      </div>
-    </div>
-    <div class="cv-item-right">
-      <div class="cv-item-date">Mar 2026</div>
-      <span class="cv-item-status status-done">completed</span>
-    </div>
-  </div>
-</div>
-
-<!-- PROJECTS -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="04">projects</div>
-  <div class="projects-grid">
-    <div class="pcard">
-      <div class="pcard-num">01</div>
-      <div class="pcard-title">Network Monitor Dashboard</div>
-      <div class="pcard-desc">Live topology viewer with SNMP polling, real-time alerting, and latency graphs across a simulated GNS3 network.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-n" style="font-size:9px">Python</span>
-        <span class="ptag stag-n" style="font-size:9px">Flask</span>
-        <span class="ptag stag-n" style="font-size:9px">SNMP</span>
-        <span class="ptag stag-n" style="font-size:9px">GNS3</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-num">02</div>
-      <div class="pcard-title">BGP / OSPF Automation</div>
-      <div class="pcard-desc">Python + Netmiko scripts that auto-configure router interfaces, OSPF areas, and generate JSON audit reports.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-n" style="font-size:9px">Netmiko</span>
-        <span class="ptag stag-n" style="font-size:9px">OSPF</span>
-        <span class="ptag stag-n" style="font-size:9px">BGP</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-num">03</div>
-      <div class="pcard-title">LLM Network Troubleshooter</div>
-      <div class="pcard-desc">Feeds syslog and packet capture data to an LLM API for plain-English root cause analysis of network issues.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-a" style="font-size:9px">LLM API</span>
-        <span class="ptag stag-p" style="font-size:9px">Python</span>
-        <span class="ptag stag-n" style="font-size:9px">syslog</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-num">04</div>
-      <div class="pcard-title">Traffic Anomaly ML Model</div>
-      <div class="pcard-desc">Classifier trained on NetFlow data to detect DDoS patterns. Deployed as a REST API with confidence scores.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-a" style="font-size:9px">scikit-learn</span>
-        <span class="ptag stag-a" style="font-size:9px">ML</span>
-        <span class="ptag stag-n" style="font-size:9px">NetFlow</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-num">05</div>
-      <div class="pcard-title">Dijkstra Visualiser</div>
-      <div class="pcard-desc">Interactive shortest-path demo mirroring how OSPF computes routing tables — DSA meets protocol design.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-g" style="font-size:9px">DSA</span>
-        <span class="ptag stag-p" style="font-size:9px">Python</span>
-        <span class="ptag stag-n" style="font-size:9px">OSPF</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-num">06</div>
-      <div class="pcard-title">Custom Linux ISO</div>
-      <div class="pcard-desc">Ubuntu 24.04 + Hyprland built with Cubic. macOS aesthetics, WhiteSur theme, fully reproducible build.</div>
-      <div class="cv-item-tags" style="margin-bottom:10px">
-        <span class="ptag stag-g" style="font-size:9px">Linux</span>
-        <span class="ptag stag-g" style="font-size:9px">Hyprland</span>
-        <span class="ptag stag-g" style="font-size:9px">Bash</span>
-      </div>
-      <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
-    </div>
-  </div>
-</div>
-
-<!-- CERTIFICATIONS -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="05">certifications & targets</div>
-  <div class="cert-list">
-    <div class="cert-item">
-      <div class="cert-left">
-        <div class="cert-icon" style="background:rgba(77,159,255,0.1);color:#4d9fff">CCNA</div>
+    </nav>
+    <main>
+      <!-- HEADER -->
+      <div class="cv-header">
+        <div class="cv-photo-wrap">
+          <img src="image/shagor.png" alt="Md Shagor" class="cv-photo" />
+          <div class="cv-photo-ring"></div>
+          <div class="cv-photo-dot"></div>
+        </div>
         <div>
-          <div class="cert-name">Cisco CCNA — 200-301</div>
-          <div class="cert-org">cisco systems · target: jul 2026</div>
+          <h1 class="cv-name">Md <span>Shagor</span>
+          </h1>
+          <div class="cv-role">network engineer · python developer · dhaka, bd</div>
+          <p class="cv-tagline">Aspiring Network Engineer building at the intersection of networking, Python automation, and AI. Targeting high-value roles through a rare combination of protocol-level knowledge and software development skills.</p>
+          <div class="cv-status">
+            <div class="sdot"></div>open to opportunities
+          </div>
+        </div>
+        <div class="cv-contacts">
+          <a href="https://github.com/heyshagor" class="cv-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg> github.com/heyshagor </a>
+          <a href="mailto:itzshagor9@gmail.com" class="cv-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg> itzshagor9@gmail.com </a>
+          <a href="https://heyshagor.github.io" class="cv-contact-item">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg> heyshagor.github.io </a>
+          <a href="https://linkedin.com/in/itzshagor" class="cv-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg> linkedin.com/in/itzshagor </a>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px">Dhaka, Bangladesh</span>
         </div>
       </div>
-      <span class="cert-badge badge-progress">in progress</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-left">
-        <div class="cert-icon" style="background:rgba(240,165,0,0.1);color:#f0a500">NET+</div>
-        <div>
-          <div class="cert-name">CompTIA Network+</div>
-          <div class="cert-org">comptia · target: 2026</div>
+      <!-- ABOUT -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="01">about</div>
+        <div class="terminal-card">
+          <div class="terminal-bar">
+            <div class="tdot td1"></div>
+            <div class="tdot td2"></div>
+            <div class="tdot td3"></div>
+            <div class="terminal-title">shagor — zsh</div>
+          </div>
+          <div class="terminal-body">
+            <div class="tline">
+              <span class="prompt">❯ </span>
+              <span class="cmd">cat about.txt</span>
+            </div>
+            <div class="tline">
+              <span class="out info">Aspiring Network Engineer with a self-directed learning approach.</span>
+            </div>
+            <div class="tline">
+              <span class="out info">Combining CCNA-track networking with Python and DSA to target</span>
+            </div>
+            <div class="tline">
+              <span class="out info">automation, AI infrastructure, and protocol-level dev roles.</span>
+            </div>
+            <div class="tline" style="margin-top:8px">
+              <span class="prompt">❯ </span>
+              <span class="cmd">cat differentiator.txt</span>
+            </div>
+            <div class="tline">
+              <span class="out ok">Most engineers choose networking OR software. I'm building both.</span>
+            </div>
+            <div class="tline">
+              <span class="out ok">This opens doors to Network Automation, AI Infrastructure, and</span>
+            </div>
+            <div class="tline">
+              <span class="out ok">Network Software Development — a rare and high-value combination.</span>
+            </div>
+            <div class="tline" style="margin-top:8px">
+              <span class="prompt">❯ <span style="animation:blink 1.2s step-end infinite">▋</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-      <span class="cert-badge badge-target">planned</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-left">
-        <div class="cert-icon" style="background:rgba(176,108,255,0.1);color:#b06cff">PY</div>
-        <div>
-          <div class="cert-name">Python for Network Engineers</div>
-          <div class="cert-org">self-study · networktocode</div>
+      <!-- SKILLS -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="02">skills & stack</div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <div class="skill-group-title">networking</div>
+            <div class="skill-tags">
+              <span class="stag stag-n">TCP/IP</span>
+              <span class="stag stag-n">OSPF</span>
+              <span class="stag stag-n">BGP</span>
+              <span class="stag stag-n">STP</span>
+              <span class="stag stag-n">VLANs</span>
+              <span class="stag stag-n">Subnetting</span>
+              <span class="stag stag-n">ACLs</span>
+              <span class="stag stag-n">NAT</span>
+              <span class="stag stag-n">CCNA track</span>
+              <span class="stag stag-n">GNS3</span>
+              <span class="stag stag-n">Wireshark</span>
+              <span class="stag stag-n">SNMP</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">python & automation</div>
+            <div class="skill-tags">
+              <span class="stag stag-p">Python</span>
+              <span class="stag stag-p">Netmiko</span>
+              <span class="stag stag-p">Flask</span>
+              <span class="stag stag-p">FastAPI</span>
+              <span class="stag stag-p">Django</span>
+              <span class="stag stag-p">REST APIs</span>
+              <span class="stag stag-p">JSON/CSV</span>
+              <span class="stag stag-p">OOP</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">dsa & algorithms</div>
+            <div class="skill-tags">
+              <span class="stag stag-g">Dijkstra</span>
+              <span class="stag stag-g">BFS / DFS</span>
+              <span class="stag stag-g">Linked Lists</span>
+              <span class="stag stag-g">Stacks / Queues</span>
+              <span class="stag stag-g">Trees</span>
+              <span class="stag stag-g">Graphs</span>
+              <span class="stag stag-g">Complexity</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">ai / ml & tools</div>
+            <div class="skill-tags">
+              <span class="stag stag-a">scikit-learn</span>
+              <span class="stag stag-a">LLM APIs</span>
+              <span class="stag stag-a">ML basics</span>
+              <span class="stag stag-g">Linux</span>
+              <span class="stag stag-g">Hyprland</span>
+              <span class="stag stag-g">Git</span>
+              <span class="stag stag-g">GitHub Pages</span>
+              <span class="stag stag-g">Bash</span>
+            </div>
+          </div>
         </div>
       </div>
-      <span class="cert-badge badge-progress">in progress</span>
-    </div>
-  </div>
-</div>
-
-<!-- PHASE 1 PROGRESS -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="06">phase 1 roadmap progress</div>
-  <div class="roadmap-bar">
-    <div class="roadmap-title">
-      <span>16-week plan · Mar 22 → Jul 10 2026</span>
-      <span id="weekLabel">week 1 of 16</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressBar"></div>
-    </div>
-    <div class="roadmap-weeks">
-      <span>start</span>
-      <span>wk 4</span>
-      <span>wk 8</span>
-      <span>wk 12</span>
-      <span>capstone</span>
-    </div>
-  </div>
-</div>
-
-<!-- TARGET ROLES -->
-<div class="cv-section">
-  <div class="cv-sec-title" data-num="07">target roles</div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-    <div class="cv-item" style="grid-template-columns:1fr">
-      <div class="cv-item-left">
-        <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-bottom:10px"></div>
-        <div class="cv-item-title" style="font-size:14px">Network Automation Engineer</div>
-        <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Python + Netmiko + config management at scale</div>
+      <!-- EDUCATION & LEARNING -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="03">education & learning</div>
+        <div class="cv-item">
+          <div class="cv-item-left">
+            <div class="cv-item-title">16-Week Network Engineering Program — Phase 1</div>
+            <div class="cv-item-org">self-directed · structured study plan</div>
+            <div class="cv-item-desc">Comprehensive self-directed program covering CCNA-track networking, Python programming, DSA, and introductory ML/AI. Includes weekly projects, GitHub milestones, and a capstone live network monitoring dashboard.</div>
+            <div class="cv-item-tags">
+              <span class="stag stag-n" style="font-size:9px">CCNA track</span>
+              <span class="stag stag-p" style="font-size:9px">Python</span>
+              <span class="stag stag-g" style="font-size:9px">DSA</span>
+              <span class="stag stag-a" style="font-size:9px">ML/AI</span>
+            </div>
+          </div>
+          <div class="cv-item-right">
+            <div class="cv-item-date">Mar 2026 – Jul 2026</div>
+            <span class="cv-item-status status-active">in progress</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-item-left">
+            <div class="cv-item-title">Linux System Administration & Customization</div>
+            <div class="cv-item-org">self-directed · practical project-based</div>
+            <div class="cv-item-desc">Built a custom Ubuntu 24.04 ISO with Hyprland WM from source. Covers boot optimization, systemd, package management, shell scripting, and custom build pipelines using Cubic.</div>
+            <div class="cv-item-tags">
+              <span class="stag stag-g" style="font-size:9px">Ubuntu</span>
+              <span class="stag stag-g" style="font-size:9px">Hyprland</span>
+              <span class="stag stag-g" style="font-size:9px">Bash</span>
+              <span class="stag stag-g" style="font-size:9px">systemd</span>
+            </div>
+          </div>
+          <div class="cv-item-right">
+            <div class="cv-item-date">2025 – present</div>
+            <span class="cv-item-status status-active">ongoing</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-item-left">
+            <div class="cv-item-title">Web Development — HTML / CSS / JavaScript</div>
+            <div class="cv-item-org">self-directed · portfolio project</div>
+            <div class="cv-item-desc">Built and deployed a full portfolio website with Notion-powered blog, Cloudflare Worker proxy, GitHub Pages hosting, and mobile-responsive design.</div>
+            <div class="cv-item-tags">
+              <span class="stag stag-p" style="font-size:9px">HTML/CSS</span>
+              <span class="stag stag-p" style="font-size:9px">JavaScript</span>
+              <span class="stag stag-g" style="font-size:9px">GitHub Pages</span>
+              <span class="stag stag-n" style="font-size:9px">Notion API</span>
+            </div>
+          </div>
+          <div class="cv-item-right">
+            <div class="cv-item-date">Mar 2026</div>
+            <span class="cv-item-status status-done">completed</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="cv-item" style="grid-template-columns:1fr">
-      <div class="cv-item-left">
-        <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-bottom:10px"></div>
-        <div class="cv-item-title" style="font-size:14px">AI Infrastructure Engineer</div>
-        <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Networking backbone for ML training clusters</div>
+      <!-- PROJECTS -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="04">projects</div>
+        <div class="projects-grid">
+          <div class="pcard">
+            <div class="pcard-num">01</div>
+            <div class="pcard-title">Network Monitor Dashboard</div>
+            <div class="pcard-desc">Live topology viewer with SNMP polling, real-time alerting, and latency graphs across a simulated GNS3 network.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-n" style="font-size:9px">Python</span>
+              <span class="ptag stag-n" style="font-size:9px">Flask</span>
+              <span class="ptag stag-n" style="font-size:9px">SNMP</span>
+              <span class="ptag stag-n" style="font-size:9px">GNS3</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+          <div class="pcard">
+            <div class="pcard-num">02</div>
+            <div class="pcard-title">BGP / OSPF Automation</div>
+            <div class="pcard-desc">Python + Netmiko scripts that auto-configure router interfaces, OSPF areas, and generate JSON audit reports.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-n" style="font-size:9px">Netmiko</span>
+              <span class="ptag stag-n" style="font-size:9px">OSPF</span>
+              <span class="ptag stag-n" style="font-size:9px">BGP</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+          <div class="pcard">
+            <div class="pcard-num">03</div>
+            <div class="pcard-title">LLM Network Troubleshooter</div>
+            <div class="pcard-desc">Feeds syslog and packet capture data to an LLM API for plain-English root cause analysis of network issues.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-a" style="font-size:9px">LLM API</span>
+              <span class="ptag stag-p" style="font-size:9px">Python</span>
+              <span class="ptag stag-n" style="font-size:9px">syslog</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+          <div class="pcard">
+            <div class="pcard-num">04</div>
+            <div class="pcard-title">Traffic Anomaly ML Model</div>
+            <div class="pcard-desc">Classifier trained on NetFlow data to detect DDoS patterns. Deployed as a REST API with confidence scores.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-a" style="font-size:9px">scikit-learn</span>
+              <span class="ptag stag-a" style="font-size:9px">ML</span>
+              <span class="ptag stag-n" style="font-size:9px">NetFlow</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+          <div class="pcard">
+            <div class="pcard-num">05</div>
+            <div class="pcard-title">Dijkstra Visualiser</div>
+            <div class="pcard-desc">Interactive shortest-path demo mirroring how OSPF computes routing tables — DSA meets protocol design.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-g" style="font-size:9px">DSA</span>
+              <span class="ptag stag-p" style="font-size:9px">Python</span>
+              <span class="ptag stag-n" style="font-size:9px">OSPF</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+          <div class="pcard">
+            <div class="pcard-num">06</div>
+            <div class="pcard-title">Custom Linux ISO</div>
+            <div class="pcard-desc">Ubuntu 24.04 + Hyprland built with Cubic. macOS aesthetics, WhiteSur theme, fully reproducible build.</div>
+            <div class="cv-item-tags" style="margin-bottom:10px">
+              <span class="ptag stag-g" style="font-size:9px">Linux</span>
+              <span class="ptag stag-g" style="font-size:9px">Hyprland</span>
+              <span class="ptag stag-g" style="font-size:9px">Bash</span>
+            </div>
+            <a href="https://github.com/heyshagor" class="pcard-link">github.com/heyshagor ↗</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="cv-item" style="grid-template-columns:1fr">
-      <div class="cv-item-left">
-        <div style="width:8px;height:8px;border-radius:50%;background:var(--accent4);margin-bottom:10px"></div>
-        <div class="cv-item-title" style="font-size:14px">Network Software Developer</div>
-        <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Protocol implementation + tooling in Python</div>
+      <!-- CERTIFICATIONS -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="05">certifications & targets</div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-left">
+              <div class="cert-icon" style="background:rgba(77,159,255,0.1);color:#4d9fff">CCNA</div>
+              <div>
+                <div class="cert-name">Cisco CCNA — 200-301</div>
+                <div class="cert-org">cisco systems · target: jul 2026</div>
+              </div>
+            </div>
+            <span class="cert-badge badge-progress">in progress</span>
+          </div>
+          <div class="cert-item">
+            <div class="cert-left">
+              <div class="cert-icon" style="background:rgba(240,165,0,0.1);color:#f0a500">NET+</div>
+              <div>
+                <div class="cert-name">CompTIA Network+</div>
+                <div class="cert-org">comptia · target: 2026</div>
+              </div>
+            </div>
+            <span class="cert-badge badge-target">planned</span>
+          </div>
+          <div class="cert-item">
+            <div class="cert-left">
+              <div class="cert-icon" style="background:rgba(176,108,255,0.1);color:#b06cff">PY</div>
+              <div>
+                <div class="cert-name">Python for Network Engineers</div>
+                <div class="cert-org">self-study · networktocode</div>
+              </div>
+            </div>
+            <span class="cert-badge badge-progress">in progress</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div style="border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center">
-  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)">heyshagor.github.io</span>
-  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)" id="cvDate"></span>
-</div>
-
-</main>
-
-<!-- PASTE BOTTOM NAV HERE -->
-  <nav class="bottom-nav">
-    <a href="index.html" class="bottom-nav-item active">
-      ...home...
-    </a>
-    <a href="blog.html" class="bottom-nav-item">
-      ...$blog...
-    </a>
-    <a <button class="print-btn" onclick="window.print()">print / save pdf</button>
-    </a>
-  </nav>
-
-<script src="js/cv.js"></script>
-</body>
+      <!-- PHASE 1 PROGRESS -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="06">phase 1 roadmap progress</div>
+        <div class="roadmap-bar">
+          <div class="roadmap-title">
+            <span>16-week plan · Mar 22 → Jul 10 2026</span>
+            <span id="weekLabel">week 1 of 16</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressBar"></div>
+          </div>
+          <div class="roadmap-weeks">
+            <span>start</span>
+            <span>wk 4</span>
+            <span>wk 8</span>
+            <span>wk 12</span>
+            <span>capstone</span>
+          </div>
+        </div>
+      </div>
+      <!-- TARGET ROLES -->
+      <div class="cv-section">
+        <div class="cv-sec-title" data-num="07">target roles</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+          <div class="cv-item" style="grid-template-columns:1fr">
+            <div class="cv-item-left">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-bottom:10px"></div>
+              <div class="cv-item-title" style="font-size:14px">Network Automation Engineer</div>
+              <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Python + Netmiko + config management at scale</div>
+            </div>
+          </div>
+          <div class="cv-item" style="grid-template-columns:1fr">
+            <div class="cv-item-left">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-bottom:10px"></div>
+              <div class="cv-item-title" style="font-size:14px">AI Infrastructure Engineer</div>
+              <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Networking backbone for ML training clusters</div>
+            </div>
+          </div>
+          <div class="cv-item" style="grid-template-columns:1fr">
+            <div class="cv-item-left">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--accent4);margin-bottom:10px"></div>
+              <div class="cv-item-title" style="font-size:14px">Network Software Developer</div>
+              <div class="cv-item-desc" style="font-size:12px;margin-top:4px">Protocol implementation + tooling in Python</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FOOTER -->
+      <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)">heyshagor.github.io</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)" id="cvDate"></span>
+      </div>
+    </main>
+    <!-- PASTE BOTTOM NAV HERE -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav-item active"> ...home... </a>
+      <a href="blog.html" class="bottom-nav-item"> ...$blog... </a>
+      <a <button class="print-btn" onclick="window.print()">print / save pdf</button>
+      </a>
+    </nav>
+    <script src="js/cv.js"></script>
+  </body>
 </html>

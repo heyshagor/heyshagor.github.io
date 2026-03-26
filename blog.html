@@ -1,135 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Blog — Shagor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<link rel="icon" type="image/x-icon" href="image/myicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="image/myicon.ico"/>
-<link rel="stylesheet" href="css/common.css"/>
-<link rel="stylesheet" href="css/blog.css"/>
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-
-<nav>
-  <a href="index.html" style="text-decoration: none;" class="logo">heyshagor@blog:~$ ./blog.sh <span class="blink">▋</span></a>
-  <div class="nav-links">
-    <a href="index.html">home</a>
-    <a href="index.html#projects">projects</a>
-    <a href="phase1_28mar_plan.html" class="active" style="color: blue;">$roadmap</a>
-    <a href="index.html#contact">contact</a>
-  </div>
-</nav>
-
-<!-- Mobile Bottom Navbar -->
-<!-- <nav class="bottom-nav">
-  <a href="index.html" class="bottom-nav-item active">
-    <svg class="bottom-nav-icon" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"/>
-      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-    </svg>
-    <span>explore</span>
-    <div class="bottom-nav-dot"></div>
-  </a>
-  <a href="blog.html" class="bottom-nav-item">
-    <svg class="bottom-nav-icon" viewBox="0 0 24 24">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-    </svg>
-    <span>blog</span>
-    <div class="bottom-nav-dot"></div>
-  </a>
-  <a href="#roadmap" class="bottom-nav-item">
-    <svg class="bottom-nav-icon" viewBox="0 0 24 24">
-      <rect x="2" y="7" width="20" height="14" rx="2"/>
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-    </svg>
-    <span>careers</span>
-    <div class="bottom-nav-dot"></div>
-  </a>
-  <a href="#contact" class="bottom-nav-item">
-    <svg class="bottom-nav-icon" viewBox="0 0 24 24">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
-    </svg>
-    <span>account</span>
-    <div class="bottom-nav-dot"></div>
-  </a>
-</nav> -->
-
-<!-- LIST -->
-<div id="listPage">
-  <div class="hero">
-    <div class="eyebrow"><span>// blog</span> · daily study log</div>
-    <h1 class="page-title">Notes from the terminal.</h1>
-    <p class="hero-sub">Networking · Python · DSA · Projects — written as I learn.</p>
-  </div>
-  <div class="stats" id="statsBar" style="display:none">
-    <div><div class="stat-n" id="totalPosts">0</div><div class="stat-l">posts</div></div>
-    <div><div class="stat-n" id="latestDate">—</div><div class="stat-l">latest</div></div>
-  </div>
-  <div class="toolbar">
-    <input class="search-input" type="text" id="searchInput" placeholder="// search posts..." oninput="filterPosts()"/>
-    <button class="filter-btn active" onclick="setFilter('all',this)">all</button>
-    <button class="filter-btn" onclick="setFilter('Networking',this)">networking</button>
-    <button class="filter-btn" onclick="setFilter('Python',this)">python</button>
-    <button class="filter-btn" onclick="setFilter('DSA',this)">dsa</button>
-    <button class="filter-btn" onclick="setFilter('Project',this)">projects</button>
-    <button class="filter-btn" onclick="setFilter('Study',this)">study</button>
-  </div>
-  <div class="posts-wrap">
-    <div id="loadingState" class="state"><div class="spinner"></div><p>fetching from notion...</p></div>
-    <div class="posts-grid" id="postsGrid" style="display:none"></div>
-    <div id="emptyState" class="state" style="display:none"><p>// no posts found</p></div>
-    <div id="errorState" class="state" style="display:none"><p>// failed to load posts</p><p class="err" id="errorMsg"></p></div>
-  </div>
-</div>
-
-<!-- POST -->
-<div id="postPage">
-  <div class="post-nav">
-    <button class="back-btn" onclick="showList()">← back to blog</button>
-    <span class="read-time" id="readTime"></span>
-  </div>
-  <div class="post-header">
-    <div class="post-cat-badge" id="postCat"></div>
-    <h1 class="post-title" id="postTitle"></h1>
-    <div class="post-meta">
-      <span>◈ <span id="postDate"></span></span>
-      <span>· <span id="postCatMeta"></span></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Shagor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="image/myicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/myicon.ico" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
-  </div>
-  <div class="post-content" id="postContent"><div class="spinner"></div></div>
-</div>
-
-<footer>
-  <span>heyshagor · <a href="index.html">portfolio</a></span>
-  <span>powered by heyshagor</span>
-  <span><a href="https://github.com/heyshagor">github.com/heyshagor</a></span>
-</footer>
- <!-- PASTE BOTTOM NAV HERE -->
-  <nav class="bottom-nav">
-    <a href="index.html" class="bottom-nav-item">
-      ...home...
-    </a>
-    <a href="/phase1_28mar_plan.html" class="bottom-nav-item" style="color: blue;">
-      ...$roadmap...
-    </a>
-    <a href="/blog.html" class="bottom-nav-item active">
-      ...$blog...
-    </a>
-    <a href="index.html#contact" class="bottom-nav-item">
-      ...contact...
-    </a>
-  </nav>
-
-<script src="js/blog.js"></script>
-</body>
+    <nav>
+      <a href="index.html" style="text-decoration: none;" class="logo">heyshagor@blog:~$ ./blog.sh <span class="blink">▋</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">home</a>
+        <a href="index.html#projects">projects</a>
+        <a href="phase1_28mar_plan.html" class="active" style="color: blue;">$roadmap</a>
+        <a href="index.html#contact">contact</a>
+      </div>
+    </nav>
+    <!-- Mobile Bottom Navbar -->
+    <!-- <nav class="bottom-nav"><a href="index.html" class="bottom-nav-item active"><svg class="bottom-nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span>explore</span><div class="bottom-nav-dot"></div></a><a href="blog.html" class="bottom-nav-item"><svg class="bottom-nav-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>blog</span><div class="bottom-nav-dot"></div></a><a href="#roadmap" class="bottom-nav-item"><svg class="bottom-nav-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>careers</span><div class="bottom-nav-dot"></div></a><a href="#contact" class="bottom-nav-item"><svg class="bottom-nav-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>account</span><div class="bottom-nav-dot"></div></a></nav> -->
+    <!-- LIST -->
+    <div id="listPage">
+      <div class="hero">
+        <div class="eyebrow">
+          <span>// blog</span> · daily study log
+        </div>
+        <h1 class="page-title">Notes from the terminal.</h1>
+        <p class="hero-sub">Networking · Python · DSA · Projects — written as I learn.</p>
+      </div>
+      <div class="stats" id="statsBar" style="display:none">
+        <div>
+          <div class="stat-n" id="totalPosts">0</div>
+          <div class="stat-l">posts</div>
+        </div>
+        <div>
+          <div class="stat-n" id="latestDate">—</div>
+          <div class="stat-l">latest</div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <input class="search-input" type="text" id="searchInput" placeholder="// search posts..." oninput="filterPosts()" />
+        <button class="filter-btn active" onclick="setFilter('all',this)">all</button>
+        <button class="filter-btn" onclick="setFilter('Networking',this)">networking</button>
+        <button class="filter-btn" onclick="setFilter('Python',this)">python</button>
+        <button class="filter-btn" onclick="setFilter('DSA',this)">dsa</button>
+        <button class="filter-btn" onclick="setFilter('Project',this)">projects</button>
+        <button class="filter-btn" onclick="setFilter('Study',this)">study</button>
+      </div>
+      <div class="posts-wrap">
+        <div id="loadingState" class="state">
+          <div class="spinner"></div>
+          <p>fetching from notion...</p>
+        </div>
+        <div class="posts-grid" id="postsGrid" style="display:none"></div>
+        <div id="emptyState" class="state" style="display:none">
+          <p>// no posts found</p>
+        </div>
+        <div id="errorState" class="state" style="display:none">
+          <p>// failed to load posts</p>
+          <p class="err" id="errorMsg"></p>
+        </div>
+      </div>
+    </div>
+    <!-- POST -->
+    <div id="postPage">
+      <div class="post-nav">
+        <button class="back-btn" onclick="showList()">← back to blog</button>
+        <span class="read-time" id="readTime"></span>
+      </div>
+      <div class="post-header">
+        <div class="post-cat-badge" id="postCat"></div>
+        <h1 class="post-title" id="postTitle"></h1>
+        <div class="post-meta">
+          <span>◈ <span id="postDate"></span>
+          </span>
+          <span>· <span id="postCatMeta"></span>
+          </span>
+        </div>
+      </div>
+      <div class="post-content" id="postContent">
+        <div class="spinner"></div>
+      </div>
+    </div>
+    <footer>
+      <span>heyshagor · <a href="index.html">portfolio</a>
+      </span>
+      <span>powered by heyshagor</span>
+      <span>
+        <a href="https://github.com/heyshagor">github.com/heyshagor</a>
+      </span>
+    </footer>
+    <!-- PASTE BOTTOM NAV HERE -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav-item"> ...home... </a>
+      <a href="/phase1_28mar_plan.html" class="bottom-nav-item" style="color: blue;"> ...$roadmap... </a>
+      <a href="/blog.html" class="bottom-nav-item active"> ...$blog... </a>
+      <a href="index.html#contact" class="bottom-nav-item"> ...contact... </a>
+    </nav>
+    <script src="js/blog.js"></script>
+  </body>
 </html>
