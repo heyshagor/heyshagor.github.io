@@ -93,7 +93,7 @@
 
 <nav>
     <div class="logo site-wrapper">
-        heyshagor@portfolio:~$<span class="logo-blink">▋</span>
+        heyshagor@roadmap:~$<span class="logo-blink">▋</span>
     </div>
     <ul class="nav-links">
         <li><a href="index.html">home</a></li>
@@ -124,6 +124,8 @@
         <button class="mb" onclick="showM(3,this)">Month 4</button>
     </div>
 
+
+<!-- week - 1 -->
     <div id="m0">
         <div class="wcard">
             <div class="wh" onclick="tog('w1')">
@@ -142,9 +144,16 @@
                     <div class="dc"><div class="dn">Wed 1</div><div class="db rev">Review OSI<br>Time Complexity<span class="tag tr">REV</span></div></div>
                     <div class="dc"><div class="dn">Thu 2</div><div class="db proj">Manual Lab<span class="tag tj">PROJ</span></div></div>
                 </div>
+                <h5>Tool to install this week:</h5>
+                <p style="font-size: 12px; color: #555;">Python 3.x + VS Code + Packet Tracer (free at netacad.com)</p>
                 <button class="abtn" onclick="sendPrompt('Explain the OSI model layers for CCNA')">OSI Guide ↗</button>
+                <button class="abtn" onclick="sendPrompt('Python install')">Install Python ↗</button>
             </div>
         </div>
+
+
+<!-- week 2 -->
+
         <div class="wcard">
             <div class="wh" onclick="tog('w2')">
                 <div class="ckbox" id="ck2" onclick="event.stopPropagation();mark(2)"></div>
@@ -162,9 +171,15 @@
                     <div class="dc"><div class="dn">Wed 8</div><div class="db net">Public/Private IP<span class="tag tn">NET</span></div></div>
                     <div class="dc"><div class="dn">Thu 9</div><div class="db proj">Python Calc<span class="tag tj">PROJ</span></div></div>
                 </div>
+                <h5>week 2 Project: Subnet calculator</h5>
+                <p style="font-size: 12px; color: #555;">Input IP + mask → output network address, broadcast, usable hosts. Uses functions + binary math.</p>
                 <button class="abtn" onclick="sendPrompt('Help me write a subnet calculator in Python step by step')">Subnet Project ↗</button>
             </div>
         </div>
+
+<!-- week 3 -->
+
+
         <div class="wcard">
             <div class="wh" onclick="tog('w3')">
                 <div class="ckbox" id="ck3" onclick="event.stopPropagation();mark(3)"></div>
@@ -182,9 +197,14 @@
                     <div class="dc"><div class="dn">Wed 15</div><div class="db dsa">Queues<span class="tag td">DSA</span></div></div>
                     <div class="dc"><div class="dn">Thu 16</div><div class="db proj">DNS Tool<span class="tag tj">PROJ</span></div></div>
                 </div>
+                <h5>Week 3 project: DNS lookup tool</h5>
+                <p style="font-size: 12px; color: #555;">socket.gethostbyname() to resolve a list of domains from a file. Save results to output file.</p>
                 <button class="abtn" onclick="sendPrompt('How does DNS resolution work step by step')">DNS Concept ↗</button>
             </div>
         </div>
+
+<!-- week - 4 -->
+        
         <div class="wcard">
             <div class="wh" onclick="tog('w4')">
                 <div class="ckbox" id="ck4" onclick="event.stopPropagation();mark(4)"></div>
@@ -193,13 +213,27 @@
                 <span class="wdates">18 – 24 Apr</span>
                 <span class="chev" id="chw4">▶</span>
             </div>
+            
             <div class="wb" id="w4">
+                  <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 18</div><div class="db net">Review week 1 - 3 notes<span class="tag tn">Review</span></div></div>
+                    <div class="dc"><div class="dn">Sun 19</div><div class="db mix">Packet Tracer: connect 2 PCs via switch<br>Lab<span class="tag tp">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 20</div><div class="db mix">Clean Python code stack & queue from scratch<br>DSA<span class="tag td">DSA</span></div></div>
+                    <div class="dc"><div class="dn">Tue 21</div><div class="db py">CCNA practics - 50 questions<span class="tag tp">CCNA</span></div></div>
+                    <div class="dc"><div class="dn">Wed 22</div><div class="db dsa">Network pinger - start<span class="tag td">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Thu 23</div><div class="db proj">Network pinger - finish + push Github<span class="tag tj">Git</span></div></div>
+                </div>
+                <h5>Month 1 project: Network pinger</h5>
+                <p style="font-size: 12px; color: #555;">Read IPs from file, ping each, save report. Your first GitHub portfolio piece!</p>
+                
                 <div class="pbox"><div class="ptitle">Milestone: Network Pinger</div><div class="pdesc">Read IPs from a file, check if they are alive, and save a report.</div></div>
                 <button class="abtn" onclick="sendPrompt('Write a Python network pinger that reads from a file')">Pinger Code ↗</button>
             </div>
         </div>
     </div>
 
+    <!-- week - 5 -->
+    
     <div id="m1" class="hid">
         <div class="wcard">
             <div class="wh" onclick="tog('w5')">
@@ -238,9 +272,16 @@
                     <div class="dc"><div class="dn">Wed 6</div><div class="db net">Wireshark Lab<span class="tag tn">NET</span></div></div>
                     <div class="dc"><div class="dn">Thu 7</div><div class="db proj">Port Scanner<span class="tag tj">PROJ</span></div></div>
                 </div>
+                <h5>Week 6 project: Port scanner</h5>
+                <p style="font-size: 12px; color: #555;">Scan open ports on an IP using Python sockets. Applies TCP + loops + error handling.</p>
                 <button class="abtn" onclick="sendPrompt('Python script for simple TCP port scanner')">Scanner Code ↗</button>
             </div>
         </div>
+
+
+    <!-- week 7 -->
+
+
         <div class="wcard">
             <div class="wh" onclick="tog('w7')">
                 <div class="ckbox" id="ck7" onclick="event.stopPropagation();mark(7)"></div>
@@ -258,9 +299,16 @@
                     <div class="dc"><div class="dn">Wed 13</div><div class="db dsa">Dijkstra code<span class="tag td">DSA</span></div></div>
                     <div class="dc"><div class="dn">Thu 14</div><div class="db proj">Path Finder<span class="tag tj">PROJ</span></div></div>
                 </div>
-                <button class="abtn" onclick="sendPrompt('Dijkstra algorithm explanation and Python code')">Dijkstra Logic ↗</button>
+
+                <h5>Week 7 project: Network path finder</h5>
+                <p style="font-size: 12px; color: #555;">Represent a network as a graph. Use Dijkstra to find shortest path between two routers — exactly how OSPF works.</p>
+                <button class="abtn" onclick="sendPrompt('Dijkstra algorithm explanation and Python code + OSPF')">Dijkstra Logic + OSPF ↗</button>
             </div>
         </div>
+
+<!-- week - 8 -->
+
+
         <div class="wcard">
             <div class="wh" onclick="tog('w8')">
                 <div class="ckbox" id="ck8" onclick="event.stopPropagation();mark(8)"></div>
@@ -269,11 +317,25 @@
                 <span class="wdates">16 – 22 May</span>
                 <span class="chev" id="chw8">▶</span>
             </div>
+            
             <div class="wb" id="w8">
-                <button class="abtn" onclick="sendPrompt('CCNA routing and switching practice questions')">CCNA Practice ↗</button>
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 16</div><div class="db net">Review weeks 5 - 7 notes<span class="tag tn">REVIEW</span></div></div>
+                    <div class="dc"><div class="dn">Sun 17</div><div class="db dsa">CCNA mock exam - 50 Qs<span class="tag td">CCNA</span></div></div>
+                    <div class="dc"><div class="dn">Mon 18</div><div class="db dsa">Solve 5 LeetCode easy problems<span class="tag td">LeetCode</span></div></div>
+                    <div class="dc"><div class="dn">Tue 19</div><div class="db dsa">Upgradeport scanner - add threading<span class="tag td">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 20</div><div class="db dsa">Study weak CCNA topics from mock<span class="tag td">CCNA</span></div></div>
+                    <div class="dc"><div class="dn">Thu 21</div><div class="db proj">Merge pinger + scanner → push GitHub<span class="tag tj">Git</span></div></div>
+                </div>
+
+                <button class="abtn" onclick="sendPrompt('CCNA routing and switching practice questions')">CCNA Practice Qs ↗</button>
             </div>
         </div>
     </div>
+
+
+<!-- week 9  -->
+
 
     <div id="m2" class="hid">
         <div class="wcard">
@@ -296,6 +358,11 @@
                 <button class="abtn" onclick="sendPrompt('How Cisco ACLs work with allow and deny rules')">ACL Guide ↗</button>
             </div>
         </div>
+
+
+        <!-- week - 10 -->
+        
+        
         <div class="wcard">
             <div class="wh" onclick="tog('w10')">
                 <div class="ckbox" id="ck10" onclick="event.stopPropagation();mark(10)"></div>
@@ -313,9 +380,17 @@
                     <div class="dc"><div class="dn">Wed 3</div><div class="db py">Multi-Device<span class="tag tp">PY</span></div></div>
                     <div class="dc"><div class="dn">Thu 4</div><div class="db proj">Config Backup<span class="tag tj">PROJ</span></div></div>
                 </div>
+                <h5>Week 10 project: Config backup tool</h5>
+                <p style="font-size: 12px; color: #555;">SSH into routers via netmiko, run show running-config, save to timestamped files automatically.</p>
                 <button class="abtn" onclick="sendPrompt('Python Netmiko script to backup Cisco router config')">Automation Code ↗</button>
             </div>
         </div>
+
+
+<!-- week - 11  -->
+
+
+
         <div class="wcard">
             <div class="wh" onclick="tog('w11')">
                 <div class="ckbox" id="ck11" onclick="event.stopPropagation();mark(11)"></div>
@@ -336,6 +411,9 @@
                 <button class="abtn" onclick="sendPrompt('Spanning Tree Protocol vs Prim algorithm')">STP Logic ↗</button>
             </div>
         </div>
+
+<!-- week - 12 -->
+
         <div class="wcard">
             <div class="wh" onclick="tog('w12')">
                 <div class="ckbox" id="ck12" onclick="event.stopPropagation();mark(12)"></div>
@@ -345,13 +423,25 @@
                 <span class="chev" id="chw12">▶</span>
             </div>
             <div class="wb" id="w12">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 13</div><div class="db net">Review all network weeks 1 - 11<span class="tag tn">Review</span></div></div>
+                    <div class="dc"><div class="dn">Sun 14</div><div class="db dsa">Full CCNA mock - 100 questions<span class="tag td">CCNA</span></div></div>
+                    <div class="dc"><div class="dn">Mon 15</div><div class="db dsa">Solve 5 LeetCode arrys + graphs<span class="tag td">LeetCode</span></div></div>
+                    <div class="dc"><div class="dn">Tue 16</div><div class="db dsa">Refactor all Pythons projects - clean code<span class="tag td">PY</span></div></div>
+                    <div class="dc"><div class="dn">Wed 17</div><div class="db net">Network audit tool - start<span class="tag tn">Project</span></div></div>
+                    <div class="dc"><div class="dn">Thu 18</div><div class="db proj">Network audit tool - finish + GitHub<span class="tag tj">Git</span></div></div>
+                </div>
                 <div class="pbox"><div class="ptitle">Milestone: Audit Tool</div><div class="pdesc">SSH into devices, check port status, and generate a health report.</div></div>
                 <button class="abtn" onclick="sendPrompt('Build a network audit tool in Python with Netmiko')">Project Help ↗</button>
             </div>
         </div>
     </div>
 
-    <div id="m3" class="hid">
+
+<!-- week - 13 -->
+    
+
+<div id="m3" class="hid">
         <div class="wcard">
             <div class="wh" onclick="tog('w13')">
                 <div class="ckbox" id="ck13" onclick="event.stopPropagation();mark(13)"></div>
@@ -372,6 +462,10 @@
                 <button class="abtn" onclick="sendPrompt('What is an AWS VPC and how to use Boto3')">AWS Guide ↗</button>
             </div>
         </div>
+
+<!-- week 14 -->
+
+
         <div class="wcard">
             <div class="wh" onclick="tog('w14')">
                 <div class="ckbox" id="ck14" onclick="event.stopPropagation();mark(14)"></div>
@@ -392,15 +486,26 @@
                 <button class="abtn" onclick="sendPrompt('How to use Python PySNMP to poll device info')">SNMP Guide ↗</button>
             </div>
         </div>
-        <div class="wcard">
+
+    <!-- week 15 -->
+        
+    <div class="wcard">
             <div class="wh" onclick="tog('w15')">
                 <div class="ckbox" id="ck15" onclick="event.stopPropagation();mark(15)"></div>
                 <span class="wnum" style="background:#EEEDFE;color:#534AB7">Week 15</span>
-                <span class="wtitle">Job Interview Prep</span>
+                <span class="wtitle">LeetCode + Job Interview Prep</span>
                 <span class="wdates">4 – 10 Jul</span>
                 <span class="chev" id="chw15">▶</span>
             </div>
             <div class="wb" id="w15">
+                 <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 4</div><div class="db py">LeetCode: 3 array problems<span class="tag tp">LeetCode</span></div></div>
+                    <div class="dc"><div class="dn">Sun 5</div><div class="db net">LeetCode: 3 string problems Write clean documented code<span class="tag tn">PY</span></div></div>
+                    <div class="dc"><div class="dn">Mon 6</div><div class="db dsa">LeetCode: 2 graph problems<span class="tag td">LeetCode</span></div></div>
+                    <div class="dc"><div class="dn">Tue 7</div><div class="db py">Mock interview: OSI, TCP/IP, routing<span class="tag tp">Interview</span></div></div>
+                    <div class="dc"><div class="dn">Wed 8</div><div class="db dsa">DSA cheat sheet + all notes review<span class="tag td">Review</span></div></div>
+                    <div class="dc"><div class="dn">Thu 9</div><div class="db proj">Polish all GitHub READMEs<span class="tag tj">Git</span></div></div>
+                </div>
                 <button class="abtn" onclick="sendPrompt('Common network engineer interview questions for juniors')">Interview Qs ↗</button>
             </div>
         </div>
@@ -408,11 +513,21 @@
             <div class="wh" onclick="tog('w16')">
                 <div class="ckbox" id="ck16" onclick="event.stopPropagation();mark(16)"></div>
                 <span class="wnum" style="background:#FAEEDA;color:#854F0B">Week 16</span>
-                <span class="wtitle">Final Graduation Build</span>
+                <span class="wtitle">Final Graduation Build - live network dashboard</span>
                 <span class="wdates">11 – 16 Jul</span>
                 <span class="chev" id="chw16">▶</span>
             </div>
             <div class="wb" id="w16">
+                <div class="dgrid">
+                    <div class="dc"><div class="dn">Sat 11</div><div class="db py">Plan dashboard: SNMP + Flask + SQLite<span class="tag tp">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Sun 12</div><div class="db net">Build: SNMP polling backend<span class="tag tn">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Mon 13</div><div class="db dsa">Build: SQLite database storage<span class="tag td">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Tue 14</div><div class="db py">Build: Flask server + HTML live stats<span class="tag tp">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Wed 15</div><div class="db dsa">Test, fix bugs, final polish<span class="tag td">PROJ</span></div></div>
+                    <div class="dc"><div class="dn">Thu 16</div><div class="db proj">Push to GitHub — Phase 1 complete!<span class="tag tj">Git + Graduation</span></div></div>
+                </div>
+                <h5>Final project: Network monitoring dashboard</h5>
+                <p style="font-size: 12px; color: #555">Python + Flask + SQLite + SNMP. Polls devices, stores history, displays live stats in browser. Proves networking + Python + DSA to any employer in the world.</p>
                 <div class="pbox"><div class="ptitle">Full Network Dashboard</div><div class="pdesc">Python + Flask + SNMP + SQLite. A complete monitoring UI.</div></div>
                 <button class="abtn" onclick="sendPrompt('How to build a network monitoring dashboard with Python Flask')">Final Project ↗</button>
             </div>

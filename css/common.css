@@ -73,6 +73,10 @@ footer{
   -webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;
   -webkit-box-align:center;-ms-flex-align:center;align-items:center;
   position:relative;z-index:1;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
 }
 footer span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}
 footer a{color:var(--text3);text-decoration:none;transition:color 0.2s}
